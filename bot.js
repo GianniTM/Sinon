@@ -46,7 +46,7 @@ client.on('message', message => {
     }
     else if (message.content === '/embed')
     {
-        message.channel.send(exampleEmbed);
+        channel.send(exampleEmbed);
     }
 });
 
