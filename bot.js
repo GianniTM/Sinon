@@ -7,7 +7,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content === 'Quote') {
-    	message.channel.send({files: ["/images/sinon1.jpg"]});
+    	message.channel.send({files: ["Images/sinon1.jpg"]});
   	}
     else if (message.content === 'quote'){
         message.channel.send({files: ["https://i.pinimg.com/originals/b1/66/e8/b166e84e5f01e9ec56bc0f61a8ea940c.jpg"]});
