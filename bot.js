@@ -47,7 +47,7 @@ client.on('message', message => {
     else if (message.content === '/embed')
     {
         message.channel.send("Testing embed 1");
-        channel.send(testEmbed);
+        message.channel.send(testEmbed);
     }
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
