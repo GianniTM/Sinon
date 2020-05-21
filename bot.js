@@ -1,23 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const testEmbed = new Discord.MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Title')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addFields(
-		{ name: 'Regular field title', value: 'Some value here' },
-		{ name: '\u200B', value: '\u200B' },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
-	)
-	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
-	.setTimestamp()
-    .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-    
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -52,6 +35,14 @@ client.on('message', message => {
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
+    else if (command === '/kick') {
+        // grab the "first" mentioned user from the message
+        // this will return a User object, just like message.author
+        if (!message.mentions.users.size) {
+            return message.reply('you need to tag a user in order to kick them!');
+        }
+    }
+
 });
 
 // THIS  MUST  BE  THIS  WAY
