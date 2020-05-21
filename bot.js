@@ -13,7 +13,7 @@ client.on('message', message => {
         message.channel.send({files: ["https://i.pinimg.com/originals/b1/66/e8/b166e84e5f01e9ec56bc0f61a8ea940c.jpg"]});
     }
     else if (message.content === '/help'){
-        message.channel.send("Help");
+        message.channel.send("If you Love Sinon then Yeah Sure!!! Otherwise Go FUCK YOURSELF!");
     }
 });
 
