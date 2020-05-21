@@ -22,6 +22,7 @@ client.on('message', message => {
     }
     else if (message.content === '/help'){
 	    const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
+	    channel.send(exampleEmbed);
 
 });
 
