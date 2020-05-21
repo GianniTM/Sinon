@@ -6,8 +6,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'Quote');
-    	message.reply('attachement');
+    if (message.content === 'ping') {
+    	message.reply('pong');
   	}
 });
 
