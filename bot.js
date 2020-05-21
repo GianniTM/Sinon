@@ -4,13 +4,6 @@ const client = new Discord.Client();
 client.on('ready', () => {
     console.log('I am ready!');
      client.user.setStatus('dnd', 'Made by Xealius')
-     client.user.setPresence({
-        game: {
-            name: 'Pls Follow',
-            type: "STREAMING",
-            url: "https://www.twitch.tv/xealiusrl"
-        }
-    });
 });
 
 client.on('message', message => {
