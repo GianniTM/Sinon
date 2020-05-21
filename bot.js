@@ -27,6 +27,11 @@ client.on('message', message => {
     {
         message.channel.send("```diff\n-Help```");
     }
+    else if (message.content === '/embed')
+    {
+        message.channel.send("Testing embed 1");
+        message.channel.send(testEmbed);
+    }
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
@@ -36,6 +41,7 @@ client.on('message', message => {
 
         const taggedUser = message.mentions.users.first();
         message.channel.send(You wanted to kick: ${taggedUser.username});
+
 
 
     }
