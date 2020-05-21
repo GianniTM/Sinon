@@ -44,9 +44,15 @@ client.on('message', message => {
     {
         message.channel.send("```diff\n-Help```");
     }
-    else if (message.content === '/embed')
+    else if (message.content === '/embed1')
     {
+        message.channel.send("Testing embed 1");
         channel.send(exampleEmbed);
+    }
+    else if (message.content === '/embed2')
+    {
+        message.channel.send("Testing embed 2");
+        message.channel.send(exampleEmbed);
     }
 });
 
