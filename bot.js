@@ -27,19 +27,20 @@ client.on('message', message => {
     {
         message.channel.send("```diff\n-Help```");
     }
+    else if (message.content === '/embed')
+    {
+        const embed = new Discord.RichEmbed();
+
+        embed.setTitle("Test");
+        embed.setColor("f7d456");
+
+        message.channel.send("Testing embed");
+        message.channel.send({embed});
+    }
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
-    else if (command === '/kick') {
-        // grab the "first" mentioned user from the message
-        // this will return a User object, just like message.author
 
-        const taggedUser = message.mentions.users.first();
-        message.channel.send(You wanted to kick: ${taggedUser.username});
-
-
-
-    }
 
 });
 
