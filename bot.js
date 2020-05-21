@@ -8,7 +8,7 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === 'ping') {
     	const attachement = new attachement('https://i.pinimg.com/originals/48/9e/93/489e93437a3209ae36a2583c7ce562ad.jpg');
-        message.channel.send(message.author, attachement);
+        message.reply(attachement);
   	}
 });
 
