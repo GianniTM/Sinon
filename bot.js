@@ -21,9 +21,7 @@ client.on('message', message => {
         message.channel.send({files: ["https://i.pinimg.com/originals/b1/66/e8/b166e84e5f01e9ec56bc0f61a8ea940c.jpg"]});
     }
     else if (message.content === '/help'){
-	    const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
-	    channel.send(exampleEmbed);
-
+	message.channel.send("```diff\n-Help```");
 });
 
 // THIS  MUST  BE  THIS  WAY
