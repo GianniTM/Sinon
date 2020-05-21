@@ -6,7 +6,7 @@ client.on('ready', () => {
      client.user.setStatus('available')
      client.user.setPresence({
         game: {
-            name: 'with depression',
+            name: 'Pls Follow',
             type: "STREAMING",
             url: "https://www.twitch.tv/xealiusrl"
         }
