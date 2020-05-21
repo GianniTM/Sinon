@@ -42,11 +42,11 @@ client.on('message', message => {
     }
     else if (message.content === '/help')
     {
-    message.channel.send("```diff\n-Help```");
+        message.channel.send("```diff\n-Help```");
     }
     else if (message.content === '/embed')
     {
-    channel.send(exampleEmbed);
+        message.channel.send(exampleEmbed);
     }
 });
 
