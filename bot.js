@@ -27,16 +27,6 @@ client.on('message', message => {
     {
         message.channel.send("```diff\n-Help```");
     }
-    else if (message.content === '/embed')
-    {
-        const embed = new Discord.RichEmbed();
-
-        embed.setTitle("Test");
-        embed.setColor("f7d456");
-
-        message.channel.send("Testing embed");
-        message.channel.send({embed});
-    }
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
