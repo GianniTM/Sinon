@@ -21,7 +21,7 @@ client.on('message', message => {
         message.channel.send({files: ["https://i.pinimg.com/originals/b1/66/e8/b166e84e5f01e9ec56bc0f61a8ea940c.jpg"]});
     }
     else if (message.content === '/help'){
-        message.channel.send("```diff \n- Help \nhey```");
+        message.channel.send("```diff\n- Help \nhey```");
     }
 });
 
