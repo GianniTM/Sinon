@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-     client.user.setStatus('available')
+     client.user.setStatus('dnd', 'Made by Xealius')
      client.user.setPresence({
         game: {
             name: 'Pls Follow',
