@@ -41,7 +41,7 @@ client.on('message', message => {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
     else if (message.content.startsWith('/u')){
-        var mention = message.mentions.users.first();
+        mention = message.mentions.users.first();
         if (mention == null){
             return;
         }
