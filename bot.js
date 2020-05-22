@@ -15,15 +15,22 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === '/Q') 
-    {
-    	message.channel.send({files: ["Images/sinon1.jpg"]});
-  	}
-    else if (message.content.lowercase() === '/q')
+    if (message.content.lowercase() === '/q')
     {
         var i = randomRange(0,3);
-        
-        message.channel.send({files: ["Images/sinon$.jpg", i+1]});
+        switch (i) {
+            case 0:
+                message.channel.send({files: ["Images/sinon1.jpg"]});
+                return;
+            case 1:
+                message.channel.send({files: ["Images/sinon2.jpg"]});
+                return;
+            case 2:
+                message.channel.send({files: ["Images/sinon3.jpg"]});
+                return;
+            case 3:
+                message.channel.send({files: ["Images/sinon4.jpg"]});
+                return;
     }
     else if (message.content === '/help')
     {
