@@ -31,6 +31,7 @@ client.on('message', message => {
             case 3:
                 message.channel.send({files: ["Images/sinon4.jpg"]});
                 return;
+        }
     }
     else if (message.content === '/help')
     {
