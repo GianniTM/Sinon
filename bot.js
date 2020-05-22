@@ -46,7 +46,7 @@ client.on('message', message => {
             message.channel.send('pls tag someone');
             return;
         }
-        message.channel.send({mention});
+        message.channel.send(`Target was hit by Expelliarmus and is disarmed.${mention}`);
     }
 
 
