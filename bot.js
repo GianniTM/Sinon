@@ -19,9 +19,11 @@ client.on('message', message => {
     {
     	message.channel.send({files: ["Images/sinon1.jpg"]});
   	}
-    else if (message.content === '/q')
+    else if (message.content.lowercase() === '/q')
     {
-        message.channel.send({files: ["https://i.pinimg.com/originals/b1/66/e8/b166e84e5f01e9ec56bc0f61a8ea940c.jpg"]});
+        var i = randomRange(0,3);
+        
+        message.channel.send({files: ["Images/sinon$.jpg", i+1]});
     }
     else if (message.content === '/help')
     {
