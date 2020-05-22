@@ -15,7 +15,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content.lowercase() === '/q')
+    if (message.content === '/q')
     {
         var i = randomRange(0,3);
         switch (i) {
