@@ -40,6 +40,13 @@ client.on('message', message => {
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
     }
+    else if (message.content === '/u'){
+        var mention = message.mentions.users.first();
+        if (mention == null){
+            return;
+        }
+        message.channel.send(mention);
+    }
 
 
 
