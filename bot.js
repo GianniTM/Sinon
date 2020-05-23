@@ -31,6 +31,7 @@ client.on('message', message => {
         var mention = message.mentions.users.first();
         if (mention == null){
             embed.setTitle("Your Avatar");
+            embed.Thumbnail(message.author.displayAvatarURL());
             message.channel.send({embed});
         }
         else{
