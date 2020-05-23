@@ -77,10 +77,23 @@ client.on('message', async message => {
         if(channel){
 
             message.member.voiceChannel.join();
-            message.channel.send('WORK U BITCH')
+            message.reply('I joined :D')
         }
         else{
-            message.channel.send('Join a voice channel')
+            message.channel.send('Join a voice channel Please!')
+        }
+
+    }
+    else if (message.content === '/leave'){
+        // Only try to join the sender's voice channel if they are in one themselves
+        const channel = message.member.voiceChannel;
+        if(channel){
+
+            message.member.voiceChannel.leave();
+            message.reply('I left ;(')
+        }
+        else{
+            message.channel.send('Join a voice channel Please!')
         }
 
     }
