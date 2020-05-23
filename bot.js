@@ -38,7 +38,7 @@ client.on('message', message => {
         else{
 
         embed.setTitle(`${mention.tag}'s avatar!`);
-        embed.setThumbnail(mention.user.displayAvatarURL);
+        embed.setThumbnail(mention.displayAvatarURL);
         embed.setColor("f7d456");
         message.channel.send("Testing embed");
         message.channel.send({embed});
