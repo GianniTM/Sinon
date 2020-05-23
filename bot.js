@@ -33,12 +33,13 @@ client.on('message', message => {
             embed.setTitle("Your Avatar");
             embed.setThumbnail(message.author.displayAvatarURL);
             message.channel.send({embed});
+            embed.setColor("RANDOM");
         }
         else{
 
-        embed.setTitle("Test");
+        embed.setTitle(`${mention.tag}'s avatar!`);
+        embed.setThumbnail(mention.user.displayAvatarURL);
         embed.setColor("f7d456");
-
         message.channel.send("Testing embed");
         message.channel.send({embed});
         }
