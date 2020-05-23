@@ -48,7 +48,7 @@ client.on('message', message => {
     }
     else if (message.content == '/avatar') {
         var user = message.author;
-        return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);   
+        message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);   
     }
 
 
