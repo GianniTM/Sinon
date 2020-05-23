@@ -47,8 +47,7 @@ client.on('message', message => {
         message.channel.send(`Hello ${mention} :D`);
     }
     else if (message.content == '/avatar') {
-        var user = message.author;
-        message.channel.send(message.author.displayAvatarURL());   
+        var user = message.author;   
     }
 
 
