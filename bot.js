@@ -62,7 +62,7 @@ client.on('message', async message => {
     }
     else if (message.content === '/join'){
     // Only try to join the sender's voice channel if they are in one themselves
-        message.member.voiceChannel.join();
+        const connection = await message.member.voiceChannel.join();
     }
     
 });
