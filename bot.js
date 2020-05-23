@@ -32,8 +32,8 @@ client.on('message', message => {
         if (mention == null){
             embed.setTitle("Your Avatar");
             embed.setThumbnail(message.author.displayAvatarURL);
-            message.channel.send({embed});
             embed.setColor("37bceb");
+            message.channel.send({embed});
         }
         else{
 
