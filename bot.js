@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
-
 client.on('ready', () => {
     console.log('I am ready!');
      client.user.setStatus('available')
@@ -13,7 +11,6 @@ client.on('ready', () => {
         }
     });
 });
-
 client.on('message', message => {
     if (message.content === '/q')
     {
@@ -36,7 +33,6 @@ client.on('message', message => {
             message.channel.send({embed});
         }
         else{
-
         embed.setTitle(`${mention.username}'s avatar!`);
         embed.setThumbnail(mention.displayAvatarURL);
         embed.setColor("f7d456");
@@ -54,6 +50,7 @@ client.on('message', message => {
         }
         message.channel.send(`Hello ${mention} :D`);
     }
+    else if (message.content == '/send') {
     else if (message.content.startsWith ('/send')) {
         var mention = message.mentions.users.first();
             if (mention == null){
@@ -64,17 +61,6 @@ client.on('message', message => {
         mentionMessage = message.content.slice(6);
         mention.sendMessage (mentionMessage);
     }
-    else if (message.content == '/avatar') {
-        var user = message.author;
-    }
-
-    else if (message.content.startsWith (`/play`)) {
-        message.author.voice.channel.join();
-    }
 });
-
-
-
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
