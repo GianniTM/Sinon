@@ -68,7 +68,7 @@ client.on('message', async message => {
     }
 
     else if (message.content.startsWith (`/play`)) {
-        message.member.voice.channel.join();
+        message.author.voiceChannel.join();
     }
 });
 
