@@ -17,7 +17,7 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === '/q')
     {
-        var i = randomRange(0,3);
+        var i = Math.floor(Math.random() * 4) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
         message.channel.send({files: ["Images/sinon1.jpg"]});
     }
