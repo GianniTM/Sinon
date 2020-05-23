@@ -61,10 +61,9 @@ client.on('message', message => {
         mention.sendMessage (mentionMessage);
     }
     else if (message.content === '/join'){
-        message.member.voiceChannel.join();
-        message.channel.send('joining');
         
     }
+    
 });
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
