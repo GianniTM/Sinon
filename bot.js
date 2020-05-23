@@ -33,7 +33,7 @@ client.on('message', message => {
             embed.setTitle("Your Avatar");
             embed.setThumbnail(message.author.displayAvatarURL);
             message.channel.send({embed});
-            embed.setColor("RANDOM");
+            embed.setColor("37bceb");
         }
         else{
 
