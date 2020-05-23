@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const { ErelaClient } = require('erela.js')
 client.on('ready', () => {
     console.log('I am ready!');
      client.user.setStatus('available')
@@ -11,6 +12,16 @@ client.on('ready', () => {
         }
     });
 });
+(async () => {
+   await client.login(process.env.BOT_TOKEN);
+   client.music = new ErelaClient(client, [
+       {
+           host: process.env.HOST,
+           port: process.env.PORT,
+           password: process.env.PASSWORD
+       }
+   ]);
+})();
 client.on('message', async message => {
     if (message.content === '/q')
     {
@@ -64,7 +75,11 @@ client.on('message', async message => {
     // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
-            message.channel.send('you are in a voice channel!')
+            client.music.players.spawn({
+                guild: message.guild,
+                voiceChannel: message.member.voiceChannel,
+                textChannel: message.channel
+            })
         }
         else{
             message.channel.send('Join a voice channel')
