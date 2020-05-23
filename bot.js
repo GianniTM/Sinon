@@ -69,16 +69,12 @@ client.on('message', async message => {
         var user = message.author;
     }
 
-    const serverQueue = queue.get(message.guild.id);
-
     if (message.content.startsWith(`/play`)) {
-        execute(message, serverQueue);
+        message.member.voiceChannel.join();
         return;
     } else if (message.content.startsWith(`/skip`)) {
-        skip(message, serverQueue);
         return;
     } else if (message.content.startsWith(`/stop`)) {
-        stop(message, serverQueue);
         return;
     }
 
@@ -86,24 +82,6 @@ client.on('message', async message => {
 
 
 });
-
-
-async function execute(message, serverQueue) {
-    const args = message.content.split(" ");
-
-    const voiceChannel = message.member.voice.channel;
-    if (!voiceChannel)
-        return message.channel.send(
-            "You need to be in a voice channel to play music!"
-        );
-    const permissions = voiceChannel.permissionsFor(message.client.user);
-    if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
-        return message.channel.send(
-            "I need the permissions to join and speak in your voice channel!"
-        );
-    }
-    voiceChannel.join();
-}
 
 
 
