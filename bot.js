@@ -62,7 +62,7 @@ client.on('message', message => {
     }
     else if (message.content === '/join'){
     // Only try to join the sender's voice channel if they are in one themselves
-            message.reply(message.member.voiceChannel.join());
+            message.reply(message.member.voiceChannel);
             message.reply('Joined');
     }
     
