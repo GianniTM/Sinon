@@ -61,7 +61,12 @@ client.on('message', message => {
         mention.sendMessage (mentionMessage);
     }
     else if (message.content === '/join'){
-        
+    // Only try to join the sender's voice channel if they are in one themselves
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
     }
     
 });
