@@ -18,20 +18,8 @@ client.on('message', message => {
     if (message.content === '/q')
     {
         var i = randomRange(0,3);
-        switch (i) {
-            case 0:
-                message.channel.send({files: ["Images/sinon1.jpg"]});
-                return;
-            case 1:
-                message.channel.send({files: ["Images/sinon2.jpg"]});
-                return;
-            case 2:
-                message.channel.send({files: ["Images/sinon3.jpg"]});
-                return;
-            case 3:
-                message.channel.send({files: ["Images/sinon4.jpg"]});
-                return;
-        }
+        var randomImg = "Images/sinon" + i + ".jpg"
+        message.channel.send({files: ["Images/sinon1.jpg"]});
     }
     else if (message.content === '/help')
     {
