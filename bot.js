@@ -54,8 +54,15 @@ client.on('message', message => {
         }
         message.channel.send(`Hello ${mention} :D`);
     }
-    else if (message.content == '/avatar') {
-        var user = message.author;   
+    else if (message.content == '/send') {
+        var mention = message.mentions.users.first();
+            if (mention == null){
+            message.channel.send('pls tag someone');
+            return;
+            }
+        message.delete();
+        mentionMessage = message.content.slice(6);
+        mention.sendMessage (mentionMessage);
     }
 
 
