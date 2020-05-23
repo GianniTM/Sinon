@@ -14,17 +14,8 @@ client.on('ready', () => {
     });
 });
 
-client.once("reconnecting", () => {
-    console.log("Reconnecting!");
-});
-
-client.once("disconnect", () => {
-    console.log("Disconnect!");
-});
-
 client.on('message', async message => {
-    if (message.author.bot) return;
-    else if (message.content === '/q')
+    if (message.content === '/q')
     {
         var i = Math.floor(Math.random() * 4) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
@@ -63,12 +54,22 @@ client.on('message', async message => {
         }
         message.channel.send(`Hello ${mention} :D`);
     }
+    else if (message.content.startsWith ('/send')) {
+        var mention = message.mentions.users.first();
+            if (mention == null){
+            message.channel.send('pls tag someone');
+            return;
+            }
+        message.delete();
+        mentionMessage = message.content.slice(6);
+        mention.sendMessage (mentionMessage);
+    }
     else if (message.content == '/avatar') {
         var user = message.author;
     }
 
     else if (message.content.startsWith (`/play`)) {
-        message.author.voiceChannel.join();
+        message.author.voice.channel.join();
     }
 });
 
