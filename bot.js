@@ -28,12 +28,19 @@ client.on('message', message => {
     else if (message.content === '/embed')
     {
         const embed = new Discord.RichEmbed();
+        if (!message.mentions.users.first()){
+            embed.setTitle("Your Avatar");
+            embed.setThumbnail(message.author.displayAvatarURL());
+            message.channel.send({embed});
+        }
+        else{
 
         embed.setTitle("Test");
         embed.setColor("f7d456");
 
         message.channel.send("Testing embed");
         message.channel.send({embed});
+        }
     }
     else if (message.content === `/server`) {
         message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
