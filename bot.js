@@ -75,12 +75,13 @@ client.on('message', async message => {
     // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
+            message.channel.send('WORK U BITCH')
             client.music.players.spawn({
                 guild: message.guild,
                 voiceChannel: channel,
                 textChannel: message.channel
             })
-            message.channel.send('WORK U BITCH')
+
         }
         else{
             message.channel.send('Join a voice channel')
