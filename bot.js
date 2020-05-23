@@ -28,7 +28,7 @@ client.on('message', message => {
     else if (message.content === '/embed')
     {
         const embed = new Discord.RichEmbed();
-        if (!message.mentions.users.first()){
+        if (message.mentions.users.first() == null){
             embed.setTitle("Your Avatar");
             embed.setThumbnail(message.author.displayAvatarURL());
             message.channel.send({embed});
