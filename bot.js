@@ -54,7 +54,7 @@ client.on('message', message => {
         }
         message.channel.send(`Hello ${mention} :D`);
     }
-    else if (message.content == '/send') {
+    else if (message.content.startsWith ('/send')) {
         var mention = message.mentions.users.first();
             if (mention == null){
             message.channel.send('pls tag someone');
