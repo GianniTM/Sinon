@@ -11,7 +11,7 @@ client.on('ready', () => {
         }
     });
 });
-client.on('message', message => {
+client.on('message', async message => {
     if (message.content === '/q')
     {
         var i = Math.floor(Math.random() * 4) + 1;
@@ -62,10 +62,7 @@ client.on('message', message => {
     }
     else if (message.content === '/join'){
     // Only try to join the sender's voice channel if they are in one themselves
-            
-
-            message.member.voiceChannel.join().then(connection => console.log('Connected!'))
-  .catch(console.error);
+        message.member.voiceChannel.join();
     }
     
 });
