@@ -64,7 +64,8 @@ client.on('message', message => {
     // Only try to join the sender's voice channel if they are in one themselves
             
 
-            message.reply(message.member.voiceChannel.name);
+            message.member.voiceChannel.join().then(connection => console.log('Connected!'))
+  .catch(console.error);
     }
     
 });
