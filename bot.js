@@ -77,9 +77,10 @@ client.on('message', async message => {
         if(channel){
             client.music.players.spawn({
                 guild: message.guild,
-                voiceChannel: message.member.voiceChannel,
+                voiceChannel: channel,
                 textChannel: message.channel
             })
+            message.channel.send('WORK U BITCH')
         }
         else{
             message.channel.send('Join a voice channel')
