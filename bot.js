@@ -14,7 +14,7 @@ client.on('ready', () => {
     });
 });
 
-client.on('message', async message => {
+client.on('message', message => {
     if (message.content === '/q')
     {
         var i = Math.floor(Math.random() * 4) + 1;
