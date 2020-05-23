@@ -19,7 +19,8 @@ client.on('message', message => {
     {
         var i = Math.floor(Math.random() * 4) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
-        message.channel.send({files: [{randomImg]}});
+        message.channel.send({randomImg});
+        message.channel.send({files: [{randomImg}]});
     }
     else if (message.content === '/help')
     {
