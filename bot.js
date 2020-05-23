@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const ytdl = require("ytdl-core");
-
-
-
+const ytdl = require('ytdl-core');
 const queue = new Map();
 
 
@@ -23,22 +20,12 @@ client.once("reconnecting", () => {
     console.log("Reconnecting!");
 });
 
-client.on('message', message => {
+client.once("disconnect", () => {
+    console.log("Disconnect!");
+});
+
+client.on('message', async message => {
     if (message.author.bot) return;
-    if (!message.content.startsWith("/")) return;
-
-    const serverQueue = queue.get(message.guild.id);
-
-    if (message.content.startsWith(`/play`)) {
-        execute(message, serverQueue);
-        return;
-    } else if (message.content.startsWith(`/skip`)) {
-        skip(message, serverQueue);
-        return;
-    } else if (message.content.startsWith(`/stop`)) {
-        stop(message, serverQueue);
-        return;
-    }
     else if (message.content === '/q')
     {
         var i = Math.floor(Math.random() * 4) + 1;
@@ -61,10 +48,10 @@ client.on('message', message => {
         }
         else{
 
-            embed.setTitle(`${mention.username}'s avatar!`);
-            embed.setThumbnail(mention.displayAvatarURL);
-            embed.setColor("f7d456");
-            message.channel.send({embed});
+        embed.setTitle(`${mention.username}'s avatar!`);
+        embed.setThumbnail(mention.displayAvatarURL);
+        embed.setColor("f7d456");
+        message.channel.send({embed});
         }
     }
     else if (message.content === `/server`) {
@@ -81,10 +68,25 @@ client.on('message', message => {
     else if (message.content == '/avatar') {
         var user = message.author;
     }
-    else {
-        message.channel.send("You need to enter a valid command!");
+
+    const serverQueue = queue.get(message.guild.id);
+
+    if (message.content.startsWith(`/play`)) {
+        execute(message, serverQueue);
+        return;
+    } else if (message.content.startsWith(`/skip`)) {
+        skip(message, serverQueue);
+        return;
+    } else if (message.content.startsWith(`/stop`)) {
+        stop(message, serverQueue);
+        return;
     }
+
+
+
+
 });
+
 
 async function execute(message, serverQueue) {
     const args = message.content.split(" ");
@@ -176,24 +178,6 @@ function play(guild, song) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.once('disconnect', () => {
-    console.log('Disconnect!');
-});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
