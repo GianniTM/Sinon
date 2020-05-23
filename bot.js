@@ -69,18 +69,9 @@ client.on('message', async message => {
         var user = message.author;
     }
 
-    if (message.content.startsWith(`/play`)) {
-        message.member.voiceChannel.join();
-        return;
-    } else if (message.content.startsWith(`/skip`)) {
-        return;
-    } else if (message.content.startsWith(`/stop`)) {
-        return;
+    else if (message.content.startsWith (`/play`)) {
+        message.member.voice.channel.join();
     }
-
-
-
-
 });
 
 
