@@ -62,7 +62,14 @@ client.on('message', async message => {
     }
     else if (message.content === '/join'){
     // Only try to join the sender's voice channel if they are in one themselves
-        message.member.voiceChannel.join().then(connection =>{message.reply("succesfully Joined!");})
+        const channel = message.member.voiceChannel;
+        if(channel){
+            message.channel.send('you are in a voice channel!')
+        }
+        else{
+            message.channel.send('Join a voice channel')
+        }
+
     }
     
 });
