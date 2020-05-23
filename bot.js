@@ -25,13 +25,13 @@ client.on('message', message => {
     {
         message.channel.send("```diff\n-Help```");
     }
-    else if (message.content === '/embed')
+    else if (message.content.startsWith ('/embed'))
     {
         const embed = new Discord.RichEmbed();
         var mention = message.mentions.users.first();
         if (mention == null){
             embed.setTitle("Your Avatar");
-            embed..setAuthor(message.author.avatarURL);
+            embed..setAuthor(message.author.avatar_url);
             message.channel.send({embed});
         }
         else{
