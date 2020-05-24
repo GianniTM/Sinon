@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const { ErelaClient } = require('erela.js')
 const YTDL = require('ytdl-core');
+const { stripIndents } = require("common-tags")
 
 function Play(connection, message)
 {
@@ -135,6 +136,23 @@ client.on('message', async message => {
         else{
             message.channel.send('Join a voice channel Please!')
         }
+
+    }
+    else if (message.content === '/np'){
+        // Only try to join the sender's voice channel if they are in one themselves
+        var server = servers[message.guild.id];
+        if (!server || !server.queue[O]){
+            message.channel.send("No song/s currently playing")
+            const {title, author, duration,  url, thumbnail } = server.queue[0];
+            const embed = new Discord.RichEmbed();
+            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
+            embed.setThumbnail(thumbnail);
+            embed.setDescription(stripIndents`
+            ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
+            `)
+            message.channel.send({embed});
+        }
+
 
     }
     
