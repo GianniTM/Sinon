@@ -76,8 +76,17 @@ client.on('message', async message => {
         const channel = message.member.voiceChannel;
         if(channel){
 
-            const connection = message.member.voiceChannel.join();
-            connection.play('Kirito x SinonAMV- Hurry Up And Save Me.mp3');
+            const connection = await message.member.voiceChannel.join();
+            const dispatcher = connection.play('Kirito x SinonAMV- Hurry Up And Save Me.mp3');
+
+            dispatcher.on('start', () => {
+                message.channel.send('audio.mp3 is now playing!');
+            });
+
+            dispatcher.on('finish', () => {
+                message.channel.send('audio.mp3 has finished playing!');
+            });
+
 
         }
         else{
