@@ -77,17 +77,9 @@ client.on('message', async message => {
         if(channel){
 
             const connection = await message.member.voiceChannel.join();
-            const dispatcher = connection.play('Kirito x SinonAMV- Hurry Up And Save Me.mp3');
 
-            dispatcher.on('start', () => {
-                message.channel.send('audio.mp3 is now playing!');
-            });
-
-            dispatcher.on('finish', () => {
-                message.channel.send('audio.mp3 has finished playing!');
-            });
-
-
+            const fs = require('fs');
+            connection.play(fs.createReadStream('Kirito x SinonAMV- Hurry Up And Save Me.mp3'));
         }
         else{
             message.channel.send('Join a voice channel Please!')
