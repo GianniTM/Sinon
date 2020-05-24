@@ -145,7 +145,7 @@ client.on('message', async message => {
             message.channel.send("No song/s currently playing")}
         else{
 //            const {title, author, duration,  url, thumbnail } = server.queue[0];
-            message.channel.send(server.queue[0]);
+              message.channel.send(server.queue[0].title);
  //           message.channel.send({duration});
  //           message.channel.send({author});
  //           message.channel.send({thumbnail});
