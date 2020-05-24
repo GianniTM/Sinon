@@ -142,7 +142,7 @@ client.on('message', async message => {
         // Only try to join the sender's voice channel if they are in one themselves
         var server = servers[message.guild.id];
         if (!server || !server.queue[O]){
-            message.channel.send("No song/s currently playing")
+            message.channel.send("No song/s currently playing")}
             const {title, author, duration,  url, thumbnail } = server.queue[0];
             const embed = new Discord.RichEmbed();
             embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
@@ -154,7 +154,6 @@ client.on('message', async message => {
         }
 
 
-    }
     
 });
 // THIS  MUST  BE  THIS  WAY
