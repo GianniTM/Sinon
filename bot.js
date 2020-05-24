@@ -101,9 +101,10 @@ client.on('message', async message => {
                 servers[message.guild.id] = {queue: []}
             }
             message.member.voiceChannel.join().then(connection =>{
-                var server = servers[message.guild.id]
+                var server = servers[message.guild.id];
                 message.reply("succesfully joined!");
-                server.queue.push(message);
+                mentionMessage = message.content.slice(6);
+                server.queue.push(mentionMessage);
                 Play(connection, message);
             })
 
