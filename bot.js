@@ -138,18 +138,15 @@ client.on('message', async message => {
         }
 
     }
+
     else if (message.content === '/np'){
         // Only try to join the sender's voice channel if they are in one themselves
         var server = servers[message.guild.id];
-        message.channel.send(server.queue[0].title);
+        message.channel.send(server.queue[0]);
         if (!server || !server.queue[O]){
             message.channel.send("No song/s currently playing")}
         else{
 //            const {title, author, duration,  url, thumbnail } = server.queue[0];
-              message.channel.send(server.queue[0].title);
- //           message.channel.send({duration});
- //           message.channel.send({author});
- //           message.channel.send({thumbnail});
  //           const embed = new Discord.RichEmbed();
  //           embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
  //           embed.setThumbnail(thumbnail);
