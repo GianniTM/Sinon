@@ -143,8 +143,9 @@ client.on('message', async message => {
         var server = servers[message.guild.id];
         if (!server || !server.queue[O]){
             message.channel.send("No song/s currently playing")}
+        else{
             const {title, author, duration,  url, thumbnail } = server.queue[0];
-            message.channel.send({title});
+            message.channel.send(server.queue[0]);
             message.channel.send({duration});
             message.channel.send({author});
             message.channel.send({thumbnail});
@@ -155,6 +156,8 @@ client.on('message', async message => {
             ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
             `)
             message.channel.send({embed});
+        }
+
         }
 
 
