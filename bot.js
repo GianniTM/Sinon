@@ -25,7 +25,7 @@ client.on('ready', () => {
 client.on('message', async message => {
     if (message.content === '/q')
     {
-        var i = Math.floor(Math.random() * 4) + 1;
+        var i = Math.floor(Math.random() * 8) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
         message.channel.send({files: [randomImg]});
     }
