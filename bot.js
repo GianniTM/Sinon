@@ -144,18 +144,18 @@ client.on('message', async message => {
         if (!server || !server.queue[O]){
             message.channel.send("No song/s currently playing")}
         else{
-            const {title, author, duration,  url, thumbnail } = server.queue[0];
+//            const {title, author, duration,  url, thumbnail } = server.queue[0];
             message.channel.send(server.queue[0]);
-            message.channel.send({duration});
-            message.channel.send({author});
-            message.channel.send({thumbnail});
-            const embed = new Discord.RichEmbed();
-            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
-            embed.setThumbnail(thumbnail);
-            embed.setDescription(stripIndents`
-            ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
-            `)
-            message.channel.send({embed});
+ //           message.channel.send({duration});
+ //           message.channel.send({author});
+ //           message.channel.send({thumbnail});
+ //           const embed = new Discord.RichEmbed();
+ //           embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
+ //           embed.setThumbnail(thumbnail);
+ //           embed.setDescription(stripIndents`
+ //           ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
+ //           `)
+ //           message.channel.send({embed});
         }
 
         }
