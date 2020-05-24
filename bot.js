@@ -77,12 +77,11 @@ client.on('message', async message => {
         if(channel){
 
             const connection = await message.member.voiceChannel.join();
+            connection.playFile('./song1.mp3')
 
-            const fs = require('fs');
-            connection.play(fs.createReadStream('Kirito x SinonAMV- Hurry Up And Save Me.mp3'));
         }
         else{
-            message.channel.send('Join a voice channel Please!')
+            message.reply('Join a voice channel Please!')
         }
 
     }
@@ -92,6 +91,7 @@ client.on('message', async message => {
         if(channel){
 
             message.member.voiceChannel.leave();
+
             message.reply('I left ;(')
         }
         else{
