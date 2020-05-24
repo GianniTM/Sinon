@@ -76,10 +76,9 @@ client.on('message', async message => {
         const channel = message.member.voiceChannel;
         if(channel){
 
-            const connection = await message.member.voiceChannel.join();
+            const connection = message.member.voiceChannel.join();
             connection.play('Kirito x SinonAMV- Hurry Up And Save Me.mp3');
 
-            message.reply('I joined :D')
         }
         else{
             message.channel.send('Join a voice channel Please!')
