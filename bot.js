@@ -92,22 +92,28 @@ client.on('message', async message => {
         mentionMessage = message.content.slice(6);
         mention.sendMessage (mentionMessage);
     }
-    else if (message.content.startsWith('/join')){
+    else if (message.content.startsWith('/p')){
     // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
             if(!message.guild.voiceConnection){
-                if (!servers[message.guild.id]){
-
-                    servers[message.guild.id] = {queue: []}
+                if (message.content.length <= 3){
+                    message.channel.send('Pleas provide a link or searchterm!');
                 }
-                message.member.voiceChannel.join().then(connection =>{
-                    var server = servers[message.guild.id];
-                    message.reply("succesfully joined!");
-                    mentionMessage = message.content.slice(6);
-                    server.queue.push(mentionMessage);
-                    Play(connection, message);
-                })
+                else{
+                    if (!servers[message.guild.id]){
+
+                        servers[message.guild.id] = {queue: []}
+                    }
+                    message.member.voiceChannel.join().then(connection =>{
+                        var server = servers[message.guild.id];
+                        message.reply("succesfully joined!");
+                        mentionMessage = message.content.slice(3);
+                        server.queue.push(mentionMessage);
+                        Play(connection, message);
+                    })
+                }
+
             }
 
 
