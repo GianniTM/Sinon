@@ -1,6 +1,27 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { ErelaClient } = require('erela.js')
+const YTDL = require('ytdl-core');
+
+function Play(connection, message)
+{
+    var server = servers[message.guild.id];
+    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
+    server.queue.shift();
+    server.dispatcher.on("end",function () {
+        if (server.queue[0]){
+            Play(connection, message);
+        }
+        else{
+            connection.disconnect();
+        }
+
+    });
+
+}
+
+global.servers = {};
+
 client.on('ready', () => {
     console.log('I am ready!');
      client.user.setStatus('available')
@@ -71,13 +92,20 @@ client.on('message', async message => {
         mentionMessage = message.content.slice(6);
         mention.sendMessage (mentionMessage);
     }
-    else if (message.content === '/join'){
+    else if (message.content.startsWith('/join')){
     // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
+            if (!servers[message.guild.id]){
 
-            const connection = await message.member.voiceChannel.join();
-            connection.playFile('./song1.mp3')
+                servers[message.guild.id] = {queue: []}
+            }
+            message.member.voiceChannel.join().then(connection =>{
+                var server = servers[message.guild.id]
+                message.reply("succesfully joined!");
+                server.queue.push(message);
+                Play(connection, message);
+            })
 
         }
         else{
