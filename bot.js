@@ -8,13 +8,13 @@ function Play(connection, message)
 {
     var server = servers[message.guild.id];
     server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
-    server.queue.shift();
     server.dispatcher.on("end",function () {
+        server.queue.shift();
         if (server.queue[0]){
             Play(connection, message);
         }
         else{
-            connection.disconnect();
+
         }
 
     });
@@ -115,8 +115,13 @@ client.on('message', async message => {
                     })
                 }
 
-            }
 
+            }
+            else{
+                    var server = servers[message.guild.id];
+                    mentionMessage = message.content.slice(3);
+                    server.queue.push(mentionMessage);
+            }
 
         }
         else{
@@ -144,7 +149,7 @@ client.on('message', async message => {
         const server = servers[message.guild.id];
         message.channel.send(server.queue[0]);
         if (!server || !server.queue[0]){
-            message.channel.send("No song/s currently playing")}
+            message.channel.send("No song's currently playing")}
         else{
 //            const {title, author, duration,  url, thumbnail } = server.queue[0];
  //           const embed = new Discord.RichEmbed();
