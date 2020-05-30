@@ -141,8 +141,8 @@ client.on('message', async message => {
 
     else if (message.content === '/np'){
         // Only try to join the sender's voice channel if they are in one themselves
-        var server = servers[message.guild.id];
-        await message.channel.send(server.queue[0]);
+        const server = servers[message.guild.id];
+        message.channel.send(server.queue[0]);
         if (!server || !server.queue[0]){
             message.channel.send("No song/s currently playing")}
         else{
