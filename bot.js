@@ -153,10 +153,7 @@ client.on('message', async message => {
            const {title, author, duration,  url, thumbnail } = server.queue[0];
            const embed = new Discord.RichEmbed();
            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
-           embed.setThumbnail(thumbnail);
-           embed.setDescription(stripIndents`
-           ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
-           `)
+           embed.setThumbnail(title);
            message.channel.send({embed});
         }
 
