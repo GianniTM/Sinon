@@ -150,7 +150,7 @@ client.on('message', async message => {
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-           const {title, author, duration,  url, thumbnail } = server.queue[0];
+           const {title} = server.queue[0];
            const embed = new Discord.RichEmbed();
            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
            embed.setThumbnail(title);
