@@ -153,7 +153,7 @@ client.on('message', async message => {
            const {title} = server.queue[0];
            const embed = new Discord.RichEmbed();
            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
-           embed.setThumbnail(title);
+           embed.setDescription(title);
            message.channel.send({embed});
         }
 
