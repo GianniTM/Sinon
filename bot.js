@@ -147,18 +147,17 @@ client.on('message', async message => {
     else if (message.content === '/np'){
         // Only try to join the sender's voice channel if they are in one themselves
         const server = servers[message.guild.id];
-        message.channel.send(server.queue[0]);
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-//            const {title, author, duration,  url, thumbnail } = server.queue[0];
- //           const embed = new Discord.RichEmbed();
- //           embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
- //           embed.setThumbnail(thumbnail);
- //           embed.setDescription(stripIndents`
- //           ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
- //           `)
- //           message.channel.send({embed});
+           const {title, author, duration,  url, thumbnail } = server.queue[0];
+           const embed = new Discord.RichEmbed();
+           embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
+           embed.setThumbnail(thumbnail);
+           embed.setDescription(stripIndents`
+           ${server.playing ? "▶" : "⏸" } **[${title}]** \`${ErelaClient.formatTime(duration, true)}\` by ${author}
+           `)
+           message.channel.send({embed});
         }
 
         }
