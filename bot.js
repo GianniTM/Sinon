@@ -167,7 +167,7 @@ client.on('message', async message => {
         }
 
     }
-    else if (message.content === '/leave'){
+    else if (message.content === '/stop'){
         // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
@@ -204,6 +204,10 @@ client.on('message', async message => {
         else{
             server.connection.dispatcher.end();
     }
+    }
+    else if(message.content === 'https:https://www.gifyourgame.com/')
+    {
+        message.react(message.guild.emojis.find('available', ":thumbsup:"))
     }
 
 
