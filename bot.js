@@ -342,29 +342,29 @@ client.on('message', async message => {
     //roll the dice!
     else if(message.content.startsWith('/roll '))
     {
+        let member = message.guild.member(message.author);
+        let nickname = member ? member.displayName : null;
         var messages = message.content.slice(6).toLowerCase();
         if (messages == '4'){
             var i = Math.floor(Math.random() * 4) + 1 ;
-            message.channel.send(message.author.username + " rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '6'){
             var i = Math.floor(Math.random() * 6) + 1 ;
-            message.channel.send(message.author.username + " rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '8'){
             var i = Math.floor(Math.random() * 8) + 1 ;
-            message.channel.send(message.author.username + " rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '10'){
             var i = Math.floor(Math.random() * 10) + 1 ;
-            message.channel.send(message.author.username + " rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '100'){
             var u = Math.floor(Math.random() * 10) + 1 ;
             var i = Math.floor(Math.random() *10) ;
             var percentage = (i * 10)+ u
-            let member = message.guild.member(message.author);
-            let nickname = member ? member.displayName : null;
             message.channel.send(nickname + " rolled a " + percentage + "!");
             if(percentage == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");
@@ -372,14 +372,14 @@ client.on('message', async message => {
         }
         else if(messages == '12'){
             var i = Math.floor(Math.random() * 12) + 1 ;
-            message.channel.send("message.author.username + \" rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '20'){
             var i = Math.floor(Math.random() * 20) + 1 ;
-            message.channel.send(message.author.username + " rolled a " + i + "!");
+            message.channel.send(nickname + " rolled a " + i + "!");
         }
         else if(messages == '69'){
-            message.channel.send("There isn't a die for this :( but i like the idea! ");
+            message.channel.send(nickname + ", there isn't a die for this :( but i like the idea! ");
         }
         else if(messages == '420'){
             message.channel.send("https://tenor.com/view/afroman-high-baked-gif-5764943");
