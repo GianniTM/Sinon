@@ -100,7 +100,15 @@ client.on('message', async message => {
 
         );
         embed.addField(
-            'Gif your game','Everytime someone posts a clip from gif your game the bot will react with a star.'
+            '**Gif your game**','Everytime someone posts a clip from gif your game the bot will react with a star.'
+
+        );
+        embed.addField(
+            '**/rps (rock,paper or scissors)**' ,'Play a game of rock paper and scissors against the bot. Also available in NL!'
+
+        );
+        embed.addField(
+            '**/roll (4,6,8,10,12,20,100)**' ,'Rolls a dice! Funny ones to use are 420 and 69!'
 
         );
         embed.setFooter('Created By Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
