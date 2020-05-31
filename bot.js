@@ -201,7 +201,7 @@ client.on('message', async message => {
             else{
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
-                if (!server || !server.queue[0]) {
+                if (!server.queue[0]) {
                     message.member.voiceChannel.equals(channel).then(connection =>{
 
                         search(mentionMessage, opts, function(err, results) {
