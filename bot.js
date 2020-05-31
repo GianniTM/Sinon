@@ -131,7 +131,9 @@ client.on('message', async message => {
                                 embed.setThumbnail(results[0].thumbnails.default.url);
                                 embed.setTitle(title);
                                 message.channel.send({embed}).then(m => {
-                                    m.delete(10000) //Deletes the message after 10000 milliseconds (10 seconds)
+                                    server.dispatcher.on("end",function () {
+                                        m.delete()
+                                    })
                                 })
                                 server.queue.push(mentionMessage);
                                 Play(connection, message);
@@ -157,7 +159,6 @@ client.on('message', async message => {
                         embed.setTitle(title);
                         message.channel.send({embed});
                         server.queue.push(mentionMessage);
-                        message.delete(10000);
                         Play(connection, message);
                     });
 
