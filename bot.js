@@ -130,8 +130,9 @@ client.on('message', async message => {
                                 embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
                                 embed.setThumbnail(results[0].thumbnails.default.url);
                                 embed.setTitle(title);
-                                message.channel.send({embed});
-                                message.delete(10000);
+                                message.channel.send({embed}).then(m => {
+                                    m.delete(10000) //Deletes the message after 10000 milliseconds (10 seconds)
+                                })
                                 server.queue.push(mentionMessage);
                                 Play(connection, message);
                             });
