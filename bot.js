@@ -79,10 +79,34 @@ client.on('message', async message => {
             'Gives you a random sinon quote!'
         );
         embed.addField(
-            '/p','Plays a song from youtube for you.'
+            '**/p**','Plays a song from youtube for you. If there is already a song playing it will put them in the queue.'
 
         );
-        embed.addField("/avatar (mentioned person)",'Sends the avatar of the person you mentioned. If no one is mentioned it will send yours.');
+        embed.addField("**/avatar (mentioned person)**",'Sends the avatar of the person you mentioned. If no one is mentioned it will send yours.');
+        embed.addField(
+            '**/skip**','Skips the current song and starts the next song in the queue. If there is no next song she will leave the voice channel.'
+
+        );
+        embed.addField(
+            '**/stop**','Queue gets emptied and bot leaves the Voice Channel'
+
+        );
+        embed.addField(
+            '**/server**','Gets information about how many members there are in the server.'
+
+        );
+        embed.addField(
+            '**/u (mentioned person)**','The bot will say hello to the tagged user. This command was for testing mentions.'
+
+        );
+        embed.addField(
+            '**/send (mentioned person) (message)**','sends a private message to the tagged user containing the private you put after you tagged that certain person. Do not abuse please.'
+
+        );
+        embed.addField(
+            '**Gif your game**','Everytime someone posts a clip from gif your game the bot will react with a star.'
+
+        );
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
