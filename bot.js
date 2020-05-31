@@ -369,8 +369,7 @@ client.on('message', async message => {
             message.channel.send("You rolled a " + i + "!");
         }
         else if(messages == '69'){
-            message.channel.send("There isn't a dice for this :( but i like the idea! " +
-                'https://giphy.com/gifs/mafs-married-marriedau-mafsau-QBq85aNSCgWTQXJCqM');
+            message.channel.send("There isn't a dice for this :( but i like the idea! ");
         }
         else if(messages == '420'){
             message.channel.send("/p because a high");
