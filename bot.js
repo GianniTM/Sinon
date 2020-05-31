@@ -372,8 +372,7 @@ client.on('message', async message => {
             message.channel.send("There isn't a dice for this :( but i like the idea! ");
         }
         else if(messages == '420'){
-            message.channel.send("/stop");
-            message.channel.send("/p because a high");
+            message.channel.send("https://tenor.com/view/afroman-high-baked-gif-5764943");
         }
 
     }
