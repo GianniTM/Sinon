@@ -26,7 +26,6 @@ function Play(connection, message)
                 })
             })
             Play(connection, message);
-
         }
     });
 
@@ -253,6 +252,7 @@ client.on('message', async message => {
     {
         message.react('⭐');
     }
+    //Rock paper scissors
     else if(message.content.startsWith('/rps'))
     {
         var messages = message.content.slice(5).toLowerCase();
@@ -339,6 +339,7 @@ client.on('message', async message => {
         }
 
     }
+    //roll the dice!
     else if(message.content.startsWith('/roll '))
     {
         var messages = message.content.slice(6).toLowerCase();
@@ -363,6 +364,9 @@ client.on('message', async message => {
             var i = Math.floor(Math.random() *10) ;
             var percentage = (i * 10)+ u
             message.channel.send("You rolled a " + percentage + "!");
+            if(percentage == '69'){
+                message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");
+            }
         }
         else if(messages == '12'){
             var i = Math.floor(Math.random() * 12) + 1 ;
@@ -381,8 +385,6 @@ client.on('message', async message => {
 
     }
 
-
-    
 });
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
