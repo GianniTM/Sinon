@@ -291,7 +291,7 @@ client.on('message', async message => {
                 message.channel.send("**We tied!** I chose Scissors.");
             }
             else{
-                message.channel.send("Add another if not everything is implemented yet" + choiceEN);
+                message.channel.send("Add another if not everything is implemented yet" + choiceEN + i);
             }
         }
         else if(messages == 'steen' || messages == 'papier' || messages == 'schaar'){
@@ -321,7 +321,7 @@ client.on('message', async message => {
                 message.channel.send("**Het is gelijkspel!** Ik koos Schaar.");
             }
             else{
-                message.channel.send("Add another if not everything is implemented yet" + choiceNL);
+                message.channel.send("Add another if not everything is implemented yet" + choiceNL + i);
             }
         }
         else{
