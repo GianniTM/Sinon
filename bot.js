@@ -3,6 +3,11 @@ const client = new Discord.Client();
 const { ErelaClient } = require('erela.js')
 const YTDL = require('ytdl-core');
 const { stripIndents } = require("common-tags")
+var search = require('youtube-search');
+var opts = {
+    maxResults: 10,
+    key: process.env.YT_TOKEN
+};
 
 function Play(connection, message)
 {
@@ -107,11 +112,14 @@ client.on('message', async message => {
                         servers[message.guild.id] = {queue: []}
                     }
                     message.member.voiceChannel.join().then(connection =>{
-                        var server = servers[message.guild.id];
-                        message.reply("succesfully joined!");
-                        mentionMessage = message.content.slice(3);
-                        server.queue.push(mentionMessage);
-                        Play(connection, message);
+                   //     var server = servers[message.guild.id];
+                   //     mentionMessage = message.content.slice(3);
+                   //     server.queue.push(mentionMessage);
+                   //     Play(connection, message);
+                        search(mentionMessage, opts, function(err, results) {
+                            if(err) return console.log(err);
+                            message.channel.sendMessage(results[0].link);
+                        });
                     })
                 }
 
