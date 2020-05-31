@@ -61,16 +61,22 @@ client.on('ready', () => {
    ]);
 })();
 client.on('message', async message => {
+    //getting sino quotes
     if (message.content === '/q')
     {
         var i = Math.floor(Math.random() * 8) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
         message.channel.send({files: [randomImg]});
     }
+    // the help function
     else if (message.content === '/help')
     {
-        message.channel.send("```diff\n-Help```");
+        const embed = new Discord.RichEmbed();
+        embed.setTitle("Functions");
+        embed.setThumbnail(bot.user.displayAvatarURL);
+        message.channel.send({embed});
     }
+    // testing embed/ getting someone's avatar
     else if (message.content.startsWith ('/embed'))
     {
         const embed = new Discord.RichEmbed();
@@ -93,7 +99,7 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed();
         embed.setTitle(message.guild.name);
         embed.setThumbnail(message.guild.iconURL)
-        embed.setDescription(`Current Members ${message.guild.memberCount}`);
+        embed.setDescription(`Current Members: ${message.guild.memberCount}`);
         message.channel.send({embed});
     }
     // saying hello to a mentioned person
