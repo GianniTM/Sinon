@@ -112,14 +112,13 @@ client.on('message', async message => {
                         servers[message.guild.id] = {queue: []}
                     }
                     message.member.voiceChannel.join().then(connection =>{
-                   //     var server = servers[message.guild.id];
-                   //     mentionMessage = message.content.slice(3);
-                   //     server.queue.push(mentionMessage);
-                   //     Play(connection, message);
-                        search(mentionMessage, opts, function(err, results) {
-                            if(err) return message.channel.send(err);
-                            message.channel.send(results[0].link);
-                        })
+                        var server = servers[message.guild.id];
+                        mentionMessage = message.content.slice(3);
+                        server.queue.push(mentionMessage);
+                        search('jsconf', opts, function(err, results) {
+                            if(err) return console.log(err);
+                            message.channel.send(results);
+                        });
                     })
                 }
 
