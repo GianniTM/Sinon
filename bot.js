@@ -28,10 +28,6 @@ function Play(connection, message)
             Play(connection, message);
 
         }
-        else{
-            message.member.voiceChannel.leave();
-        }
-
     });
 
 }
