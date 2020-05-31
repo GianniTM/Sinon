@@ -107,6 +107,7 @@ client.on('message', async message => {
             '**Gif your game**','Everytime someone posts a clip from gif your game the bot will react with a star.'
 
         );
+        embed.setFooter('Ceated by Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
