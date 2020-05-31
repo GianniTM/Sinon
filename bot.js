@@ -12,14 +12,14 @@ var opts = {
 function Play(connection, message)
 {
     var server = servers[message.guild.id];
-    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
+    server.dispatcher = connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
     server.dispatcher.on("end",function () {
         server.queue.shift();
         if (server.queue[0]){
             Play(connection, message);
         }
         else{
-
+            message.member.voiceChannel.leave();
         }
 
     });
@@ -117,8 +117,13 @@ client.on('message', async message => {
 
                             search(mentionMessage, opts, function(err, results) {
                                 if(err) return console.log(err);
-                                mentionMessage = results[0].link;
-                                message.channel.send("Playing " + results[0].title);
+                                mentionMessage = results[0];
+                                const title = results[0].title;
+                                const embed = new Discord.RichEmbed();
+                                embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+                                embed.setThumbnail(results[0].thumbnails.default.url);
+                                embed.setTitle(title)
+                                message.channel.send({embed});
                                 server.queue.push(mentionMessage);
                                 Play(connection, message);
                             });
@@ -132,20 +137,15 @@ client.on('message', async message => {
             else{
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
-                if (mentionMessage.startsWith("https")) {
-                    server.queue.push(mentionMessage);
-                    Play(connection, message);
-                }
-                else{
 
                     search(mentionMessage, opts, function(err, results) {
                         if(err) return console.log(err);
-                        mentionMessage = results[0].link;
+                        mentionMessage = results[0];
                         message.channel.send("Queued " + results[0].title);
                         server.queue.push(mentionMessage);
                         Play(connection, message);
                     });
-                }
+
 
             }
 
@@ -176,7 +176,7 @@ client.on('message', async message => {
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-           const {title} = server.queue[0];
+           const title = server.queue[0].title;
            const embed = new Discord.RichEmbed();
            embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
            embed.setDescription(title);
