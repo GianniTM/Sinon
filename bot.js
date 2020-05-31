@@ -140,12 +140,6 @@ client.on('message', async message => {
             else{
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
-                if (mentionMessage.startsWith("https")) {
-                    server.queue.push(mentionMessage);
-                    Play(connection, message);
-                }
-                else{
-
                     search(mentionMessage, opts, function(err, results) {
                         if(err) return console.log(err);
                         mentionMessage = results[0].link;
@@ -153,7 +147,7 @@ client.on('message', async message => {
                         server.queue.push(mentionMessage);
                         Play(connection, message);
                     });
-                }
+
 
             }
 
