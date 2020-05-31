@@ -115,7 +115,7 @@ client.on('message', async message => {
                         var server = servers[message.guild.id];
                         mentionMessage = message.content.slice(3);
                         server.queue.push(mentionMessage);
-                        search('jsconf', opts, function(err, results) {
+                        search(mentionMessage, opts, function(err, results) {
                             if(err) return console.log(err);
                             message.channel.send(results[0].title);
                         });
