@@ -196,6 +196,17 @@ client.on('message', async message => {
         }
 
         }
+    else if(message.content === '/skip')
+    {
+        const server = servers[message.guild.id];
+        if (!server || !server.queue[0]){
+            message.channel.send("No song's currently playing")}
+        else{
+            server.queue.shift();
+            serverQueue.connection.dispatcher.end();
+            message.channel.send("skipped song!")
+    }
+    }
 
 
     
