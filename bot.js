@@ -129,7 +129,7 @@ client.on('message', async message => {
                                 const embed = new Discord.RichEmbed();
                                 embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
                                 embed.setThumbnail(results[0].thumbnails.default.url);
-                                embed.setTitle(title)
+                                embed.setTitle(title);
                                 message.channel.send({embed});
                                 server.queue.push(mentionMessage);
                                 Play(connection, message);
@@ -148,7 +148,12 @@ client.on('message', async message => {
                     search(mentionMessage, opts, function(err, results) {
                         if(err) return console.log(err);
                         mentionMessage = results[0];
-                        message.channel.send("Queued " + results[0].title);
+                        const title = results[0].title;
+                        const embed = new Discord.RichEmbed();
+                        embed.setAuthor("Queued:", message.author.displayAvatarURL);
+                        embed.setThumbnail(results[0].thumbnails.default.url);
+                        embed.setTitle(title);
+                        message.channel.send({embed});
                         server.queue.push(mentionMessage);
                         Play(connection, message);
                     });
