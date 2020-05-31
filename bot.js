@@ -104,10 +104,9 @@ client.on('message', async message => {
 
         );
         embed.addField(
-            '**Gif your game**','Everytime someone posts a clip from gif your game the bot will react with a star.'
+            'Gif your game','Everytime someone posts a clip from gif your game the bot will react with a star.'
 
         );
-        embed.setFooter('Ceated by Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
@@ -169,7 +168,7 @@ client.on('message', async message => {
 
                         servers[message.guild.id] = {queue: []}
                     }
-                    var server = servers[message.guild.id];
+                    server = servers[message.guild.id];
                     mentionMessage = message.content.slice(3);
                         message.member.voiceChannel.join().then(connection =>{
 
@@ -225,7 +224,7 @@ client.on('message', async message => {
         // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
-            var server = servers[message.guild.id];
+            server = servers[message.guild.id];
             server.queue = [];
             server.dispatcher.end();
         }
