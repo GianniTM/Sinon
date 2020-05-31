@@ -207,8 +207,7 @@ client.on('message', async message => {
     }
     else if(message.content.startsWith('https://www.gifyourgame.com/'))
     {
-        message.react('👍');
-        message.channel.send('nice');
+        message.react('⭐');
     }
 
 
