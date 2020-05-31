@@ -202,26 +202,28 @@ client.on('message', async message => {
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
                 if (!server || !server.queue[0]) {
-                    message.member.voiceChannel.join().then(connection => {
+                    message.member.voiceChannel.equals(channel).then(connection =>{
 
-                        search(mentionMessage, opts, function (err, results) {
-                            if (err) return console.log(err);
+                        search(mentionMessage, opts, function(err, results) {
+                            if(err) return console.log(err);
                             mentionMessage = results[0];
                             const title = results[0].title;
                             const embed = new Discord.RichEmbed();
                             embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
                             embed.setTitle(title);
                             message.channel.send({embed}).then(m => {
-                                server.dispatcher.on("end", function () {
+                                server.dispatcher.on("end",function () {
                                     m.delete()
                                 })
                             })
                             server.queue.push(mentionMessage);
                             Play(connection, message);
-                        });
-                    })
+                        });})
                 }
                 else{
+                    server.dispatcher.end();
+                }
+
                     search(mentionMessage, opts, function(err, results) {
                         if(err) return console.log(err);
                         mentionMessage = results[0];
@@ -230,15 +232,13 @@ client.on('message', async message => {
                         embed.setAuthor("Queued:", message.author.displayAvatarURL);
                         embed.setTitle(title);
                         message.channel.send({embed}).then(m => {
-                                m.delete(1000);
+                            server.dispatcher.on("end",function () {
+                                m.delete()
+                            })
                         })
                         server.queue.push(mentionMessage);
-                        Play(message.member.voiceChannel.join(), message);
 
                     });
-                }
-
-
 
 
             }
