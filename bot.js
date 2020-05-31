@@ -19,7 +19,6 @@ function Play(connection, message)
             const title = server.queue[0].title;
             const embed = new Discord.RichEmbed();
             embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
-            embed.setThumbnail(server.queue[0].thumbnails.default.url);
             embed.setTitle(title)
             message.channel.send({embed}).then(m => {
                 server.dispatcher.on("end",function () {
@@ -73,11 +72,17 @@ client.on('message', async message => {
     {
         const embed = new Discord.RichEmbed();
         embed.setTitle("Functions");
-        embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+        embed.setImage("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+        embed.description("Here you can see al the functions this bot has so far.")
+        embed.addField(
+            {name: '/q', value:'Gives you a random sinon quote!'},
+            {name: '/p', value:'Plays a song from youtube for you.'},
+            {name: "/avatar (mentioned person)", value: 'Sends the avatar of the person you mentioned. If no one is mentioned it will send yours.'}
+        );
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
-    else if (message.content.startsWith ('/embed'))
+    else if (message.content.startsWith ('/avatar'))
     {
         const embed = new Discord.RichEmbed();
         var mention = message.mentions.users.first();
@@ -145,7 +150,6 @@ client.on('message', async message => {
                                 const title = results[0].title;
                                 const embed = new Discord.RichEmbed();
                                 embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
-                                embed.setThumbnail(results[0].thumbnails.default.url);
                                 embed.setTitle(title);
                                 message.channel.send({embed}).then(m => {
                                     server.dispatcher.on("end",function () {
@@ -172,7 +176,6 @@ client.on('message', async message => {
                         const title = results[0].title;
                         const embed = new Discord.RichEmbed();
                         embed.setAuthor("Queued:", message.author.displayAvatarURL);
-                        embed.setThumbnail(results[0].thumbnails.default.url);
                         embed.setTitle(title);
                         message.channel.send({embed});
                         server.queue.push(mentionMessage);
