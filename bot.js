@@ -199,12 +199,13 @@ client.on('message', async message => {
     else if(message.content === '/skip')
     {
         const server = servers[message.guild.id];
+        message.channel.send("yes i do go into skip");
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
+            message.channel.send("skipped song!")
             server.queue.shift();
             server.connection.dispatcher.end();
-            message.channel.send("skipped song!")
     }
     }
 
