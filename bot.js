@@ -168,7 +168,7 @@ client.on('message', async message => {
 
                         servers[message.guild.id] = {queue: []}
                     }
-                    server = servers[message.guild.id];
+                    var server = servers[message.guild.id];
                     mentionMessage = message.content.slice(3);
                         message.member.voiceChannel.join().then(connection =>{
 
@@ -224,9 +224,9 @@ client.on('message', async message => {
         // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
-            server = servers[message.guild.id];
+            var server = servers[message.guild.id];
             server.queue = [];
-            server.dispatcher.end();
+            server.dispatcher.end()
         }
         else{
             message.channel.send('Join a voice channel Please!')
@@ -240,7 +240,7 @@ client.on('message', async message => {
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-            server.dispatcher.end();
+            server.connection.dispatcher.end();
     }
     }
     // gif your game react
