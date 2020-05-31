@@ -149,7 +149,7 @@ client.on('message', async message => {
                     search(mentionMessage, opts, function(err, results) {
                         if(err) return console.log(err);
                         mentionMessage = results[0].link;
-                        message.channel.send("Playing " + results[0].title);
+                        message.channel.send("Queued " + results[0].title);
                         server.queue.push(mentionMessage);
                         Play(connection, message);
                     });
