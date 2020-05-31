@@ -117,7 +117,7 @@ client.on('message', async message => {
                         server.queue.push(mentionMessage);
                         search('jsconf', opts, function(err, results) {
                             if(err) return console.log(err);
-                            message.channel.send(results);
+                            message.channel.send(results[0].title);
                         });
                     })
                 }
