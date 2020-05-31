@@ -117,9 +117,9 @@ client.on('message', async message => {
                    //     server.queue.push(mentionMessage);
                    //     Play(connection, message);
                         search(mentionMessage, opts, function(err, results) {
-                            if(err) return console.log(err);
-                            message.channel.sendMessage(results[0].link);
-                        });
+                            if(err) return message.channel.send(err);
+                            message.channel.send(results[0].link);
+                        })
                     })
                 }
 
