@@ -107,6 +107,7 @@ client.on('message', async message => {
             'Gif your game','Everytime someone posts a clip from gif your game the bot will react with a star.'
 
         );
+        embed.setFooter('Created By Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
@@ -236,11 +237,11 @@ client.on('message', async message => {
     // skip songs
     else if(message.content === '/skip')
     {
-        const server = servers[message.guild.id];
+        var server = servers[message.guild.id];
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-            server.connection.dispatcher.end();
+            server.dispatcher.end();
     }
     }
     // gif your game react
