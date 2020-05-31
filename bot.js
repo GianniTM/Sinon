@@ -59,7 +59,7 @@ client.on('message', async message => {
     //getting sino quotes
     if (message.content === '/q')
     {
-        var i = Math.floor(Math.random() * 16) + 1;
+        var i = Math.floor(Math.random() * 15) + 1;
         var randomImg = "Images/sinon" + i + ".jpg"
         message.channel.send({files: [randomImg]});
     }
