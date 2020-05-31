@@ -340,7 +340,32 @@ client.on('message', async message => {
         var messages = message.content.slice(6).toLowerCase();
         if (messages == 'd4'){
             var i = Math.floor(Math.random() * 4) + 1 ;
-            message.channel.send("You rolled a " + i);
+            message.channel.send("You rolled a " + i + "!");
+        }
+        else if(messages == 'd6'){
+            var i = Math.floor(Math.random() * 6) + 1 ;
+            message.channel.send("You rolled a " + i + "!");
+        }
+        else if(messages == 'd8'){
+            var i = Math.floor(Math.random() * 6) + 1 ;
+            message.channel.send("You rolled a " + i + "!");
+        }
+        else if(messages == 'd10'){
+            var i = Math.floor(Math.random() * 6) + 1 ;
+            message.channel.send("You rolled a " + i + "!");
+        }
+        else if(messages == 'd10'){
+            var i = Math.floor(Math.random() *10) ;
+            var percentage = i * 10
+            message.channel.send("You rolled a " + percentage + "!");
+        }
+        else if(messages == 'd12'){
+            var i = Math.floor(Math.random() * 12) + 1 ;
+            message.channel.send("You rolled a " + i + "!");
+        }
+        else if(messages == 'd20'){
+            var i = Math.floor(Math.random() * 20) + 1 ;
+            message.channel.send("You rolled a " + i + "!");
         }
 
     }
