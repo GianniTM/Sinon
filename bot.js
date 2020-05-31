@@ -363,7 +363,7 @@ client.on('message', async message => {
             var u = Math.floor(Math.random() * 10) + 1 ;
             var i = Math.floor(Math.random() *10) ;
             var percentage = (i * 10)+ u
-            let member = guild.member(message.author);
+            let member = message.guild.member(message.author);
             let nickname = member ? member.displayName : null;
             message.channel.send(nickname + " rolled a " + percentage + "!");
             if(percentage == '69'){
