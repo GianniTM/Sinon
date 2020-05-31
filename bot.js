@@ -252,7 +252,7 @@ client.on('message', async message => {
     else if(message.content.startsWith('/rps'))
     {
         var messages = message.content.slice(5).toLowerCase();
-        var i = Math.floor(Math.random() * 3) + 1;
+        var i = Math.floor(Math.random() * 3) ;
         var listEN = [
             'rock' ,
             'paper',
