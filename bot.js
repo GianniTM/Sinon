@@ -88,9 +88,15 @@ client.on('message', async message => {
         message.channel.send({embed});
         }
     }
+    //getting the amount of members in the current server
     else if (message.content === `/server`) {
-        message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
+        const embed = new Discord.RichEmbed();
+        embed.setTitle(message.guild.name);
+        embed.setThumbnail(message.guild.iconURL)
+        embed.setDescription(`Current Members ${message.guild.memberCount}`);
+        message.channel.send({embed});
     }
+    // saying hello to a mentioned person
     else if (message.content.startsWith ('/u')){
         var mention = message.mentions.users.first();
         if (mention == null){
@@ -99,6 +105,7 @@ client.on('message', async message => {
         }
         message.channel.send(`Hello ${mention} :D`);
     }
+    //sending a private message via the bot
     else if (message.content.startsWith ('/send')) {
         var mention = message.mentions.users.first();
             if (mention == null){
@@ -109,8 +116,8 @@ client.on('message', async message => {
         mentionMessage = message.content.slice(6);
         mention.sendMessage (mentionMessage);
     }
+    // playing + queueing song
     else if (message.content.startsWith('/p')){
-    // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
             if(!message.guild.voiceConnection){
@@ -175,6 +182,7 @@ client.on('message', async message => {
         }
 
     }
+    //stop songs
     else if (message.content === '/stop'){
         // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
@@ -182,29 +190,13 @@ client.on('message', async message => {
             var server = servers[message.guild.id];
             server.queue = [];
             server.dispatcher.end()
-
-            message.reply('I left ;(')
         }
         else{
             message.channel.send('Join a voice channel Please!')
         }
 
     }
-
-    else if (message.content === '/np'){
-        // Only try to join the sender's voice channel if they are in one themselves
-        const server = servers[message.guild.id];
-        if (!server || !server.queue[0]){
-            message.channel.send("No song's currently playing")}
-        else{
-           const title = server.queue[0].title;
-           const embed = new Discord.RichEmbed();
-           embed.setAuthor("Current Song Playing:", message.author.displayAvatarURL);
-           embed.setDescription(title);
-           message.channel.send({embed});
-        }
-
-        }
+    // skip songs
     else if(message.content === '/skip')
     {
         const server = servers[message.guild.id];
@@ -214,6 +206,7 @@ client.on('message', async message => {
             server.connection.dispatcher.end();
     }
     }
+    // gif your game react
     else if(message.content.startsWith('https://www.gifyourgame.com/'))
     {
         message.react('⭐');
