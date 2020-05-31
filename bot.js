@@ -21,7 +21,11 @@ function Play(connection, message)
             embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
             embed.setThumbnail(server.queue[0].thumbnails.default.url);
             embed.setTitle(title)
-            message.channel.send({embed});
+            message.channel.send({embed}).then(m => {
+                server.dispatcher.on("end",function () {
+                    m.delete()
+                })
+            })
             Play(connection, message);
 
         }
@@ -176,7 +180,8 @@ client.on('message', async message => {
         const channel = message.member.voiceChannel;
         if(channel){
 
-            message.member.voiceChannel.leave();
+            server.queue = [];
+            server.dispatcher.end()
 
             message.reply('I left ;(')
         }
