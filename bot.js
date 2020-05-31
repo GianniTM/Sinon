@@ -73,7 +73,7 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed();
         embed.setTitle("Functions");
         embed.setImage("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
-        embed.description("Here you can see al the functions this bot has so far.")
+        embed.setDescription("Here you can see al the functions this bot has so far.");
         embed.addField(
             '/q',
             'Gives you a random sinon quote!'
