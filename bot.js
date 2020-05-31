@@ -209,9 +209,14 @@ client.on('message', async message => {
                         const embed = new Discord.RichEmbed();
                         embed.setAuthor("Queued:", message.author.displayAvatarURL);
                         embed.setTitle(title);
-                        message.channel.send({embed});
+                        message.channel.send({embed}).then(m => {
+                            server.dispatcher.on("end",function () {
+                                m.delete()
+                            })
+                        })
                         server.queue.push(mentionMessage);
-                        Play(connection, message);
+                        Play(message.member.voiceChannel, message);
+
                     });
 
 
