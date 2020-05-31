@@ -249,6 +249,56 @@ client.on('message', async message => {
     {
         message.react('⭐');
     }
+    else if(message.content.startsWith('/rps'))
+    {
+        var messages = message.content.slice(5).toLowerCase();
+        var i = Math.floor(Math.random() * 3) + 1;
+        var listEN = [
+            'rock' ,
+            'paper',
+            'scissors'
+        ];
+        var listNL = [
+            'steen' ,
+            'papier',
+            'schaar'
+        ];
+        var choiceEN = listEN[i];
+        var choiceNL = listNL[i];
+        if(messages == 'rock' || messages == 'paper' || messages == 'scissors'){
+            if(messages == 'rock' && choiceEN == 'rock'){
+                message.channel.send("**We tied!** I chose Rock.")
+            }
+            else if(messages == 'rock' && choiceEN == 'paper'){
+                message.channel.send("**I win!** I chose Paper.");
+            }
+            else if(messages == 'rock' && choiceEN == 'scissors'){
+                message.channel.send("**You win!** i chose Scissors.");
+            }
+            else if(messages == 'paper' && choiceEN == 'rock'){
+                message.channel.send("**You win!** I chose Rock.");
+            }
+            else if(messages == 'scissors' && choiceEN == 'rock'){
+                message.channel.send("**I win!** I chose Rock.");
+            }
+            else if(messages == 'paper' && choiceEN == 'paper'){
+                message.channel.send("**We tied!** I chose Paper.");
+            }
+            else if(messages == 'paper' && choiceEN == 'scissors'){
+                message.channel.send("**I won!** I chose Scissors");
+            }
+            else if(messages == 'scissors' && choiceEN == 'scissors'){
+                message.channel.send("**We tied!** I chose Scissors.")
+            }
+        }
+        else if(messages == 'steen' || messages == 'papier' || messages == 'schaar'){
+
+        }
+        else{
+            message.channel.send("You didn't schoose 1 of the options. The Languages you can play in are NL and EN");
+        }
+
+    }
 
 
     
