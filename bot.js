@@ -335,6 +335,15 @@ client.on('message', async message => {
         }
 
     }
+    else if(message.content.startsWith('/roll '))
+    {
+        var messages = message.content.slice(6).toLowerCase();
+        if (messages == 'd4'){
+            var i = Math.floor(Math.random() * 4) ;
+            message.channel.send("You rolled a " + i);
+        }
+
+    }
 
 
     
