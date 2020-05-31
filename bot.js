@@ -220,25 +220,24 @@ client.on('message', async message => {
                             Play(connection, message);
                         });})
                 }
-                else{
-                    server.dispatcher.end();
-                }
+                else {
 
-                    search(mentionMessage, opts, function(err, results) {
-                        if(err) return console.log(err);
+                    search(mentionMessage, opts, function (err, results) {
+                        if (err) return console.log(err);
                         mentionMessage = results[0];
                         const title = results[0].title;
                         const embed = new Discord.RichEmbed();
                         embed.setAuthor("Queued:", message.author.displayAvatarURL);
                         embed.setTitle(title);
                         message.channel.send({embed}).then(m => {
-                            server.dispatcher.on("end",function () {
+                            server.dispatcher.on("end", function () {
                                 m.delete()
                             })
                         })
                         server.queue.push(mentionMessage);
 
                     });
+                }
 
 
             }
