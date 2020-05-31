@@ -339,7 +339,7 @@ client.on('message', async message => {
     {
         var messages = message.content.slice(6).toLowerCase();
         if (messages == 'd4'){
-            var i = Math.floor(Math.random() * 4) ;
+            var i = Math.floor(Math.random() * 4) + 1 ;
             message.channel.send("You rolled a " + i);
         }
 
