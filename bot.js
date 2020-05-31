@@ -205,7 +205,7 @@ client.on('message', async message => {
             server.connection.dispatcher.end();
     }
     }
-    else if(message.content === 'https:https://www.gifyourgame.com/')
+    else if(message.content === 'https://www.gifyourgame.com/')
     {
         message.react(message.guild.emojis.find('name', ":star:"))
     }
