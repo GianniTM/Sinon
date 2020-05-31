@@ -111,15 +111,28 @@ client.on('message', async message => {
 
                         servers[message.guild.id] = {queue: []}
                     }
-                    message.member.voiceChannel.join().then(connection =>{
-                        var server = servers[message.guild.id];
-                        mentionMessage = message.content.slice(3);
-                        server.queue.push(mentionMessage);
-                        search(mentionMessage, opts, function(err, results) {
-                            if(err) return console.log(err);
-                            message.channel.send(results[0].title);
-                        });
-                    })
+                    var server = servers[message.guild.id];
+                    mentionMessage = message.content.slice(3);
+                    if (mentionMessage.startsWith("https")){
+                        message.member.voiceChannel.join().then(connection =>{
+
+                            server.queue.push(mentionMessage);
+                            Play(connection, message);
+                        })
+                    }
+                    else{
+                        message.member.voiceChannel.join().then(connection =>{
+
+                            search(mentionMessage, opts, function(err, results) {
+                                if(err) return console.log(err);
+                                mentionMessage = results[0].link;
+                                message.channel.send("Playing " + results[0].title);
+                                server.queue.push(mentionMessage);
+                                Play(connection, message);
+                            });
+                        })
+                    }
+
                 }
 
 
