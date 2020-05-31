@@ -75,14 +75,14 @@ client.on('message', async message => {
         embed.setImage("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.description("Here you can see al the functions this bot has so far.")
         embed.addField(
-            {name: '/q'},
-            {value:'Gives you a random sinon quote!'}
+            '/q',
+            'Gives you a random sinon quote!'
         );
         embed.addField(
-            {name: '/p'},{ value:'Plays a song from youtube for you.'}
+            '/p','Plays a song from youtube for you.'
 
         );
-        embed.addField({name: "/avatar (mentioned person)"},{ value: 'Sends the avatar of the person you mentioned. If no one is mentioned it will send yours.'})
+        embed.addField("/avatar (mentioned person)",'Sends the avatar of the person you mentioned. If no one is mentioned it will send yours.');
         message.channel.send({embed});
     }
     // testing embed/ getting someone's avatar
