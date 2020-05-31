@@ -157,7 +157,7 @@ client.on('message', async message => {
         mention.sendMessage (mentionMessage);
     }
     // playing + queueing song
-    else if (message.content.startsWith('/p')){
+    else if (message.content.startsWith('/p ')){
         const channel = message.member.voiceChannel;
         if(channel){
             if(!message.guild.voiceConnection){
@@ -259,7 +259,7 @@ client.on('message', async message => {
             'scissors'
         ];
         var listNL = [
-            'steen' ,
+            'steen',
             'papier',
             'schaar'
         ];
@@ -296,28 +296,28 @@ client.on('message', async message => {
         }
         else if(messages == 'steen' || messages == 'papier' || messages == 'schaar'){
 
-            if(messages == 'steen' && choiceEN == 'steen'){
+            if(messages == 'steen' && choiceNL == 'steen'){
                 message.channel.send("**Het is gelijkspel!** Ik koos Steen.");
             }
-            else if(messages == 'steen' && choiceEN == 'papier'){
+            else if(messages == 'steen' && choiceNL == 'papier'){
                 message.channel.send("**Ik win!** Ik koos Papier.");
             }
-            else if(messages == 'steen' && choiceEN == 'schaar'){
+            else if(messages == 'steen' && choiceNL == 'schaar'){
                 message.channel.send("**Jij wint!** Ik koos Schaar.");
             }
-            else if(messages == 'papier' && choiceEN == 'steen'){
+            else if(messages == 'papier' && choiceNL == 'steen'){
                 message.channel.send("**Jij wint!** Ik koos Steen.");
             }
-            else if(messages == 'schaar' && choiceEN == 'steen'){
+            else if(messages == 'schaar' && choiceNL == 'steen'){
                 message.channel.send("**Ik win!** Ik koos Steen.");
             }
-            else if(messages == 'papier' && choiceEN == 'papier'){
+            else if(messages == 'papier' && choiceNL == 'papier'){
                 message.channel.send("**Het is gelijkspel!** Ik koos Papier.");
             }
-            else if(messages == 'papier' && choiceEN == 'schaar'){
+            else if(messages == 'papier' && choiceNL == 'schaar'){
                 message.channel.send("**Ik win!** Ik koos Schaar");
             }
-            else if(messages == 'schaar' && choiceEN == 'schaar'){
+            else if(messages == 'schaar' && choiceNL == 'schaar'){
                 message.channel.send("**Het is gelijkspel!** Ik koos Schaar.");
             }
             else{
