@@ -205,7 +205,7 @@ client.on('message', async message => {
         else{
             message.channel.send("skipped song!")
             server.queue.shift();
-            server.connection.dispatcher.end();
+            server.dispatcher.end();
     }
     }
 
