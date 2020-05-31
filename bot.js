@@ -347,15 +347,15 @@ client.on('message', async message => {
             message.channel.send("You rolled a " + i + "!");
         }
         else if(messages == 'd8'){
-            var i = Math.floor(Math.random() * 6) + 1 ;
+            var i = Math.floor(Math.random() * 8) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
         else if(messages == 'd10'){
-            var i = Math.floor(Math.random() * 6) + 1 ;
+            var i = Math.floor(Math.random() * 10) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
         else if(messages == 'd100'){
-            var u = Math.floor(Math.random() * 6) + 1 ;
+            var u = Math.floor(Math.random() * 10) + 1 ;
             var i = Math.floor(Math.random() *10) ;
             var percentage = (i * 10)+ u
             message.channel.send("You rolled a " + percentage + "!");
