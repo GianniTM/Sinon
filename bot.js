@@ -373,6 +373,7 @@ client.on('message', async message => {
                 'https://giphy.com/gifs/mafs-married-marriedau-mafsau-QBq85aNSCgWTQXJCqM');
         }
         else if(messages == '420'){
+            message.channel.send("/stop");
             message.channel.send("/p because a high");
         }
 
