@@ -179,7 +179,7 @@ client.on('message', async message => {
         // Only try to join the sender's voice channel if they are in one themselves
         const channel = message.member.voiceChannel;
         if(channel){
-
+            var server = servers[message.guild.id];
             server.queue = [];
             server.dispatcher.end()
 
