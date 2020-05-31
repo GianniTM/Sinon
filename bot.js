@@ -347,7 +347,7 @@ client.on('message', async message => {
         var messages = message.content.slice(6).toLowerCase();
         var i = Math.floor(Math.random() * parseInt(messages)) + 1 ;
         message.channel.send(nickname + ', You rolled a ' + i + '!');
-        if(percentage == '69'){
+        if(messages == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");
         else if(messages == '69'){
             message.channel.send(nickname + ", there isn't a die for this :( but i like the idea! ");
