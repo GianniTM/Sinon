@@ -16,7 +16,14 @@ function Play(connection, message)
     server.dispatcher.on("end",function () {
         server.queue.shift();
         if (server.queue[0]){
+            const title = server.queue[0].title;
+            const embed = new Discord.RichEmbed();
+            embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+            embed.setThumbnail(server.queue[0].thumbnails.default.url);
+            embed.setTitle(title)
+            message.channel.send({embed});
             Play(connection, message);
+
         }
         else{
             message.member.voiceChannel.leave();
