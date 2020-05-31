@@ -290,8 +290,11 @@ client.on('message', async message => {
             else if(messages == 'scissors' && choiceEN == 'scissors'){
                 message.channel.send("**We tied!** I chose Scissors.");
             }
+            else if(messages == 'scissors' && choiceNL == 'paper'){
+                message.channel.send("**You win!** I chose Paper.");
+            }
             else{
-                message.channel.send("Add another if not everything is implemented yet" + choiceEN + i);
+                message.channel.send("Add another if not everything is implemented yet " + choiceEN + i);
             }
         }
         else if(messages == 'steen' || messages == 'papier' || messages == 'schaar'){
@@ -320,8 +323,11 @@ client.on('message', async message => {
             else if(messages == 'schaar' && choiceNL == 'schaar'){
                 message.channel.send("**Het is gelijkspel!** Ik koos Schaar.");
             }
+            else if(messages == 'schaar' && choiceNL == 'papier'){
+                message.channel.send("**Jij wint!** Ik koos Papier.");
+            }
             else{
-                message.channel.send("Add another if not everything is implemented yet" + choiceNL + i);
+                message.channel.send("Add another if not everything is implemented yet " + choiceNL + i);
             }
         }
         else{
