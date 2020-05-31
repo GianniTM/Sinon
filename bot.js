@@ -207,7 +207,7 @@ client.on('message', async message => {
     }
     else if(message.content === 'https:https://www.gifyourgame.com/')
     {
-        message.react(message.guild.emojis.find('available', ":thumbsup:"))
+        message.react(message.guild.emojis.find('name', ":thumbsup:"))
     }
 
 
