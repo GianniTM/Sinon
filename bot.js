@@ -345,39 +345,10 @@ client.on('message', async message => {
         let member = message.guild.member(message.author);
         let nickname = member ? member.displayName : null;
         var messages = message.content.slice(6).toLowerCase();
-        if (messages == '4'){
-            var i = Math.floor(Math.random() * 4) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
-        else if(messages == '6'){
-            var i = Math.floor(Math.random() * 6) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
-        else if(messages == '8'){
-            var i = Math.floor(Math.random() * 8) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
-        else if(messages == '10'){
-            var i = Math.floor(Math.random() * 10) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
-        else if(messages == '100'){
-            var u = Math.floor(Math.random() * 10) + 1 ;
-            var i = Math.floor(Math.random() *10) ;
-            var percentage = (i * 10)+ u
-            message.channel.send(nickname + " rolled a " + percentage + "!");
-            if(percentage == '69'){
+        var i = Math.floor(Math.random() * messages) + 1 ;
+        message.channel.send(nickname + ', You rolled a ' + i + '!');
+        if(percentage == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");
-            }
-        }
-        else if(messages == '12'){
-            var i = Math.floor(Math.random() * 12) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
-        else if(messages == '20'){
-            var i = Math.floor(Math.random() * 20) + 1 ;
-            message.channel.send(nickname + " rolled a " + i + "!");
-        }
         else if(messages == '69'){
             message.channel.send(nickname + ", there isn't a die for this :( but i like the idea! ");
         }
