@@ -107,7 +107,7 @@ client.on('message', async message => {
 
         );
         embed.addField(
-            '**/roll (4,6,8,10,12,20,100)**' ,'Rolls a dice! Funny ones to use are 420 and 69!'
+            '**/roll (Number)**' ,'Rolls a dice! Funny ones to use are 420 and 69!'
 
         );
         embed.setFooter('Created By Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
@@ -346,7 +346,6 @@ client.on('message', async message => {
         let nickname = member ? member.displayName : null;
         var messages = message.content.slice(6).toLowerCase();
         var i = Math.floor(Math.random() * parseInt(messages)) + 1 ;
-        message.channel.send(nickname + ', You rolled a ' + i + '!');
         if(i == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");}
         if(messages == '69'){
@@ -354,6 +353,9 @@ client.on('message', async message => {
         }
         else if(messages == '420'){
             message.channel.send("https://tenor.com/view/afroman-high-baked-gif-5764943");
+        }
+        else{
+            message.channel.send(nickname + ', You rolled a ' + i + '!');
         }
 
     }
