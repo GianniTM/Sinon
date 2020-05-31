@@ -368,6 +368,9 @@ client.on('message', async message => {
             var i = Math.floor(Math.random() * 20) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
+        else if(messages == 'd69'){
+            message.channel.send("There isn't a dice for this :( but i like the idea!");
+        }
 
     }
 
