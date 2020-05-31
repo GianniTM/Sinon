@@ -203,7 +203,7 @@ client.on('message', async message => {
             message.channel.send("No song's currently playing")}
         else{
             server.queue.shift();
-            serverQueue.connection.dispatcher.end();
+            server.connection.dispatcher.end();
             message.channel.send("skipped song!")
     }
     }
