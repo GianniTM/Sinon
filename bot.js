@@ -338,37 +338,37 @@ client.on('message', async message => {
     else if(message.content.startsWith('/roll '))
     {
         var messages = message.content.slice(6).toLowerCase();
-        if (messages == 'd4'){
+        if (messages == '4'){
             var i = Math.floor(Math.random() * 4) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd6'){
+        else if(messages == '6'){
             var i = Math.floor(Math.random() * 6) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd8'){
+        else if(messages == '8'){
             var i = Math.floor(Math.random() * 8) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd10'){
+        else if(messages == '10'){
             var i = Math.floor(Math.random() * 10) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd100'){
+        else if(messages == '100'){
             var u = Math.floor(Math.random() * 10) + 1 ;
             var i = Math.floor(Math.random() *10) ;
             var percentage = (i * 10)+ u
             message.channel.send("You rolled a " + percentage + "!");
         }
-        else if(messages == 'd12'){
+        else if(messages == '12'){
             var i = Math.floor(Math.random() * 12) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd20'){
+        else if(messages == '20'){
             var i = Math.floor(Math.random() * 20) + 1 ;
             message.channel.send("You rolled a " + i + "!");
         }
-        else if(messages == 'd69'){
+        else if(messages == '69'){
             message.channel.send("There isn't a dice for this :( but i like the idea!");
         }
 
