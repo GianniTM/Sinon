@@ -30,7 +30,8 @@ function Play(connection, message)
         else{
 
             server.dispatcher.destroy();
-            message.channel.send("destroyed");
+            message.channel.send("destroyed" + server.queue[0].title);
+
         }
     });
 
