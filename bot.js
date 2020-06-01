@@ -13,8 +13,7 @@ function Play(connection, message)
 {
     var server = servers[message.guild.id];
     server.dispatcher = connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
-    server.dispatcher.on('error', message.channel.send(console.error));
-    server.dispatcher.on("end",function () {
+    server.dispatcher.on("finish",function () {
         server.queue.shift();
         if (server.queue[0]){
             const title = server.queue[0].title;
@@ -23,7 +22,7 @@ function Play(connection, message)
             embed.setTitle(title)
             message.channel.send({embed}).then(m => {
                 server.dispatcher.on("end",function () {
-                    m.delete()
+                    m.delete();
                 })
             })
             Play(connection, message);
