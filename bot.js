@@ -424,6 +424,21 @@ client.on('message', async message => {
         }
 
     }
+    else if(message.content === ('/leave'))
+    {
+        if (message.member.voiceChannel) {
+            if(message.guild.voiceConnection) {
+                message.member.voiceChannel.leave()
+                message.react('👋');
+            }
+            else{
+                message.channel.send("I'm not in a VoiceChannel!")
+                }
+        }
+        else {
+            message.channel.send("You are not in a VoiceChannel!");
+        }
+    }
 
 });
 // THIS  MUST  BE  THIS  WAY
