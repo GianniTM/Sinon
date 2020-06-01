@@ -207,53 +207,55 @@ client.on('message', async message => {
                 if (message.content.length <= 3){
                     message.channel.send('Pleas provide a link or searchterm!');
                 }
-                else{
-                    if (!servers[message.guild.id]){
+                else {
+                    if (!servers[message.guild.id]) {
 
                         servers[message.guild.id] = {queue: []}
                     }
-                var server = servers[message.guild.id];
-                mentionMessage = message.content.slice(3);
-                if (!server.queue[0]) {
-                    message.member.voiceChannel.join().then(connection =>{
-                        message.channel.send('it comes here');
 
-                        search(mentionMessage, opts, function(err, results) {
+                    var server = servers[message.guild.id];
+                    mentionMessage = message.content.slice(3);
+                    if (!server.queue[0]) {
+                        message.member.voiceChannel.join().then(connection => {
+                            message.channel.send('it comes here');
 
-                            if(err) return console.log(err);
-                            message.channel.send('it works here');
+                            search(mentionMessage, opts, function (err, results) {
+
+                                if (err) return console.log(err);
+                                message.channel.send('it works here');
+                                mentionMessage = results[0];
+                                const title = results[0].title;
+                                const embed = new Discord.RichEmbed();
+                                embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+                                embed.setTitle(title);
+                                message.channel.send({embed}).then(m => {
+                                    server.dispatcher.on("end", function () {
+                                        m.delete()
+                                    })
+                                })
+                                server.queue.push(mentionMessage);
+                                message.channel.send('it comes here');
+                                Play(connection, message);
+                            });
+                        })
+                    } else {
+
+                        search(mentionMessage, opts, function (err, results) {
+                            if (err) return console.log(err);
                             mentionMessage = results[0];
                             const title = results[0].title;
                             const embed = new Discord.RichEmbed();
-                            embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+                            embed.setAuthor("Queued:", message.author.displayAvatarURL);
                             embed.setTitle(title);
                             message.channel.send({embed}).then(m => {
-                                server.dispatcher.on("end",function () {
+                                server.dispatcher.on("end", function () {
                                     m.delete()
                                 })
                             })
                             server.queue.push(mentionMessage);
-                            message.channel.send('it comes here');
-                            Play(connection, message);
-                        });})
-                }
-                else {
 
-                    search(mentionMessage, opts, function (err, results) {
-                        if (err) return console.log(err);
-                        mentionMessage = results[0];
-                        const title = results[0].title;
-                        const embed = new Discord.RichEmbed();
-                        embed.setAuthor("Queued:", message.author.displayAvatarURL);
-                        embed.setTitle(title);
-                        message.channel.send({embed}).then(m => {
-                            server.dispatcher.on("end", function () {
-                                m.delete()
-                            })
-                        })
-                        server.queue.push(mentionMessage);
-
-                    });
+                        });
+                    }
                 }
 
 
