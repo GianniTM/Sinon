@@ -12,7 +12,7 @@ var opts = {
 function Play(connection, message)
 {
     var server = servers[message.guild.id];
-    server.dispatcher = connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
+    server.dispatcher = new connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
     server.dispatcher.on("end",function () {
         server.queue.shift();
         if (server.queue[0]){
@@ -30,13 +30,6 @@ function Play(connection, message)
         else{
 
             server.dispatcher.destroy();
-            message.channel.send("destroyed");
-            if(!server.queue[0]){
-                message.channel.send("Queue is empty");
-            }
-            else{
-                message.channel.send("whut??? HOOOOWWWWW????")
-            }
 
         }
     });
@@ -214,6 +207,12 @@ client.on('message', async message => {
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
                 if (!server.queue[0]) {
+                    if (message.member.voiceChannel.equals(channel)){
+                        message.channel.send("they are equal")
+                    }
+                    else{
+                        message.channel.send("nope")
+                    }
                     message.member.voiceChannel.equals(channel).then(connection =>{
 
                         search(mentionMessage, opts, function(err, results) {
