@@ -30,6 +30,7 @@ function Play(connection, message)
         else{
 
             server.dispatcher.destroy();
+            message.channel.send('it destroys here');
 
         }
     });
@@ -207,16 +208,13 @@ client.on('message', async message => {
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
                 if (!server.queue[0]) {
-                    if (message.member.voiceChannel.equals(channel)){
-                        message.channel.send("they are equal")
-                    }
-                    else{
-                        message.channel.send("nope")
-                    }
                     message.member.voiceChannel.equals(channel).then(connection =>{
+                        message.channel.send('it comes here');
 
                         search(mentionMessage, opts, function(err, results) {
+
                             if(err) return console.log(err);
+                            message.channel.send('it works here');
                             mentionMessage = results[0];
                             const title = results[0].title;
                             const embed = new Discord.RichEmbed();
