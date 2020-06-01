@@ -29,8 +29,6 @@ function Play(connection, message)
         }
         else{
 
-            server.dispatcher.destroy();
-
         }
     });
 
