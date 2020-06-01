@@ -399,8 +399,12 @@ client.on('message', async message => {
         }
 
     }
-    else if(message.content.startsWith('/queue '))
+    else if(message.content === ('/queue'))
     {
+        if (!servers[message.guild.id]) {
+
+            servers[message.guild.id] = {queue: []}
+        }
         var server = servers[message.guild.id];
         if(!server.queue[0]){
             const embed = new Discord.RichEmbed();
