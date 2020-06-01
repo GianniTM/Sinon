@@ -13,7 +13,7 @@ function Play(connection, message)
 {
     var server = servers[message.guild.id];
     server.dispatcher = connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
-    server.dispatcher.on("finish",function () {
+    server.dispatcher.on("end",function () {
         server.queue.shift();
         if (server.queue[0]){
             const title = server.queue[0].title;
