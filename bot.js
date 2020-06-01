@@ -399,6 +399,21 @@ client.on('message', async message => {
         }
 
     }
+    else if(message.content.startsWith('/queue '))
+    {
+        var server = servers[message.guild.id];
+        if(!server.queue[0]){
+            const embed = new Discord.RichEmbed();
+            embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+            embed.setTitle("What are you looking at? There is nothing here!");
+            message.channel.send({embed});
+        }
+        else{
+            for(song of server.queue){
+                message.channel.send("Working on it don't worry");
+            }
+        }
+    }
 
 });
 // THIS  MUST  BE  THIS  WAY
