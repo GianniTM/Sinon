@@ -181,7 +181,6 @@ client.on('message', async message => {
                     var server = servers[message.guild.id];
                     mentionMessage = message.content.slice(3);
                         message.member.voiceChannel.join().then(connection =>{
-                            message.channel.send('it comes here for no reason');
                             search(mentionMessage, opts, function(err, results) {
                                 if(err) return console.log(err);
                                 mentionMessage = results[0];
@@ -195,7 +194,6 @@ client.on('message', async message => {
                                     })
                                 })
                                 server.queue.push(mentionMessage);
-                                message.channel.send('it comes here for no reason');
                                 Play(connection, message);
                             });
                         })
@@ -206,10 +204,18 @@ client.on('message', async message => {
 
             }
             else{
+                if (message.content.length <= 3){
+                    message.channel.send('Pleas provide a link or searchterm!');
+                }
+                else{
+                    if (!servers[message.guild.id]){
+
+                        servers[message.guild.id] = {queue: []}
+                    }
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
                 if (!server.queue[0]) {
-                    message.member.voiceChannel.equals(channel).then(connection =>{
+                    message.member.voiceChannel.join().then(connection =>{
                         message.channel.send('it comes here');
 
                         search(mentionMessage, opts, function(err, results) {
@@ -385,7 +391,7 @@ client.on('message', async message => {
         if(i == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");}
         if(messages == '69'){
-            message.channel.send(nickname + ", there isn't a dice for this :( but i like the idea! ");
+            message.channel.send(nickname + ", there isn't a die for this :( but i like the idea! ");
         }
         else if(messages == '420'){
             message.channel.send("https://tenor.com/view/afroman-high-baked-gif-5764943");
