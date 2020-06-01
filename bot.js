@@ -181,7 +181,7 @@ client.on('message', async message => {
                     var server = servers[message.guild.id];
                     mentionMessage = message.content.slice(3);
                         message.member.voiceChannel.join().then(connection =>{
-
+                            message.channel.send('it comes here for no reason');
                             search(mentionMessage, opts, function(err, results) {
                                 if(err) return console.log(err);
                                 mentionMessage = results[0];
@@ -195,6 +195,7 @@ client.on('message', async message => {
                                     })
                                 })
                                 server.queue.push(mentionMessage);
+                                message.channel.send('it comes here for no reason');
                                 Play(connection, message);
                             });
                         })
@@ -226,6 +227,7 @@ client.on('message', async message => {
                                 })
                             })
                             server.queue.push(mentionMessage);
+                            message.channel.send('it comes here');
                             Play(connection, message);
                         });})
                 }
