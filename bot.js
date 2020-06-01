@@ -13,6 +13,7 @@ function Play(connection, message)
 {
     var server = servers[message.guild.id];
     server.dispatcher = connection.playStream(YTDL(server.queue[0].link, {filter: "audioonly"}));
+    server.dispatcher.on('error', message.channel.send(console.error));
     server.dispatcher.on("end",function () {
         server.queue.shift();
         if (server.queue[0]){
@@ -258,7 +259,6 @@ client.on('message', async message => {
         if(channel){
             var server = servers[message.guild.id];
             server.queue = [];
-            server.dispatcher.end();
             server.dispatcher.destroy();
         }
         else{
@@ -273,7 +273,7 @@ client.on('message', async message => {
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-            server.dispatcher.end();
+            server.dispatcher.destroy();
     }
     }
     // gif your game react
