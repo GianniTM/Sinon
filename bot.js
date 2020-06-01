@@ -27,6 +27,9 @@ function Play(connection, message)
             })
             Play(connection, message);
         }
+        else{
+            server.dispatcher.destroy();
+        }
     });
 
 }
@@ -199,10 +202,6 @@ client.on('message', async message => {
 
             }
             else{
-                if (!servers[message.guild.id]){
-
-                    servers[message.guild.id] = {queue: []}
-                }
                 var server = servers[message.guild.id];
                 mentionMessage = message.content.slice(3);
                 if (!server.queue[0]) {
@@ -260,6 +259,7 @@ client.on('message', async message => {
             var server = servers[message.guild.id];
             server.queue = [];
             server.dispatcher.end();
+            server.dispatcher.destroy();
         }
         else{
             message.channel.send('Join a voice channel Please!')
