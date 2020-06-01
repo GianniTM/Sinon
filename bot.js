@@ -30,7 +30,6 @@ function Play(connection, message)
         else{
 
             server.dispatcher.destroy();
-            message.channel.send('it destroys here');
 
         }
     });
@@ -217,12 +216,10 @@ client.on('message', async message => {
                     mentionMessage = message.content.slice(3);
                     if (!server.queue[0]) {
                         message.member.voiceChannel.join().then(connection => {
-                            message.channel.send('it comes here');
 
                             search(mentionMessage, opts, function (err, results) {
 
                                 if (err) return console.log(err);
-                                message.channel.send('it works here');
                                 mentionMessage = results[0];
                                 const title = results[0].title;
                                 const embed = new Discord.RichEmbed();
@@ -234,7 +231,6 @@ client.on('message', async message => {
                                     })
                                 })
                                 server.queue.push(mentionMessage);
-                                message.channel.send('it comes here');
                                 Play(connection, message);
                             });
                         })
