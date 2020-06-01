@@ -414,8 +414,7 @@ client.on('message', async message => {
         }
         else{
             const embed = new Discord.RichEmbed();
-            embed.setAuthor(message.author.displayAvatarURL);
-            embed.setTitle("Queue:");
+            embed.setAuthor("Queue:", message.author.displayAvatarURL);
             for(song of server.queue){
                 embed.addField(song.title, song.channelTitle)
             }
