@@ -90,6 +90,10 @@ client.on('message', async message => {
 
         );
         embed.addField(
+            '**/queue**','Queue will be shown current playing song will always be at te top.'
+
+        );
+        embed.addField(
             '**/server**','Gets information about how many members there are in the server.'
 
         );
