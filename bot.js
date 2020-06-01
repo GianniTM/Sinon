@@ -259,7 +259,7 @@ client.on('message', async message => {
         if(channel){
             var server = servers[message.guild.id];
             server.queue = [];
-            server.dispatcher.destroy();
+            server.dispatcher.end();
         }
         else{
             message.channel.send('Join a voice channel Please!')
@@ -273,7 +273,7 @@ client.on('message', async message => {
         if (!server || !server.queue[0]){
             message.channel.send("No song's currently playing")}
         else{
-            server.dispatcher.destroy();
+            server.dispatcher.end();
     }
     }
     // gif your game react
