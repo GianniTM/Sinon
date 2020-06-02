@@ -4,6 +4,7 @@ const { ErelaClient } = require('erela.js')
 const YTDL = require('ytdl-core');
 const { stripIndents } = require("common-tags")
 var search = require('youtube-search');
+var counter = "0";
 var opts = {
     maxResults: 10,
     key: process.env.YT_TOKEN
@@ -114,7 +115,7 @@ client.on('message', async message => {
 
         );
         embed.addField(
-            '**/roll (Number)**' ,'Rolls a dice! Funny ones to use are 420 and 69!'
+            '**/roll (Max Number)**' ,'Rolls a dice! Funny ones to use are 420 and 69!'
 
         );
         embed.setFooter('Created By Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
@@ -336,7 +337,7 @@ client.on('message', async message => {
             else if(messages == 'scissors' && choiceEN == 'scissors'){
                 message.channel.send("**We tied!** I chose Scissors.");
             }
-            else if(messages == 'scissors' && choiceNL == 'paper'){
+            else if(messages == 'scissors' && choiceEN == 'paper'){
                 message.channel.send("**You win!** I chose Paper.");
             }
             else{
@@ -401,6 +402,7 @@ client.on('message', async message => {
         }
 
     }
+    //queue
     else if(message.content === ('/queue'))
     {
         if (!servers[message.guild.id]) {
@@ -424,6 +426,7 @@ client.on('message', async message => {
         }
 
     }
+    //leave's the voice channel
     else if(message.content === ('/leave'))
     {
         if (message.member.voiceChannel) {
@@ -439,6 +442,12 @@ client.on('message', async message => {
             message.channel.send("You are not in a VoiceChannel!");
         }
     }
+    else if(message.content == ('/hate'))
+    {
+        counter += 1;
+        message.channel.send('Sadly ' + counter + 'have hated me so far.');
+    }
+
 
 });
 // THIS  MUST  BE  THIS  WAY
