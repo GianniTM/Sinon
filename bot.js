@@ -4,7 +4,7 @@ const { ErelaClient } = require('erela.js')
 const YTDL = require('ytdl-core');
 const { stripIndents } = require("common-tags")
 var search = require('youtube-search');
-var counter = "0";
+var counter = 0;
 var opts = {
     maxResults: 10,
     key: process.env.YT_TOKEN
@@ -445,7 +445,7 @@ client.on('message', async message => {
     else if(message.content == ('/hate'))
     {
         counter += 1;
-        message.channel.send('Sadly ' + counter + 'have hated me so far.');
+        message.channel.send('Sadly ' + counter + ' have hated me so far.');
     }
 
 
