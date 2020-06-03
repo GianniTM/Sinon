@@ -462,7 +462,7 @@ client.on('message', async message => {
             sentEmbed.react("🔫");
 
             setTimeout(function(){
-                    for(var i=0;i<9999;i++) {
+                    for(var i=0;i<20;i++) {
                         if (reaction.emoji.name === "🔫") {
                             participants.push(user.id);
 
