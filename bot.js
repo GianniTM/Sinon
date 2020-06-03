@@ -461,6 +461,7 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
+                message.channel.send(reaction.emoji.name);
                 if (reaction.emoji.name === "🔫"){
                     participants.push(user.id);
                     message.channel.send("comes here")
