@@ -460,10 +460,10 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
-                return reaction.emoji === "🔫" && user.id === message.author.id;
+                return reaction.emoji.name === "🔫" && user.id === message.author.id;
             };
 
-            message.awaitReactions(filter, { max: 4, time: 10000, errors: ['time'] })
+            sentEmbed.awaitReactions(filter, { max: 4, time: 10000, errors: ['time'] })
                 .then(collected => message.channel.send(collected.size))
                 .catch(collected => {
                     message.channel.send(`After a few, only ${collected.size} out of 4 reacted.`);
