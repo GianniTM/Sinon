@@ -461,13 +461,10 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
-                message.channel.send(reaction.emoji);
-                message.channel.send('hey');
-                return(reaction.emoji.name === "🔫");
+                return reaction.emoji.name === '🔫' && user.id === message.author.id;
             };
             message.awaitReactions(filter, { time: 15000 })
-                .then(collected => message.channel.send(`After a few, only ${participants.length} out of 4 reacted. ${collected.size}`))
-
+                .then(collected => message.channel.send(`After a few, only ${participants.length} out of 4 reacted. ${collected.size}`));
 
         })
     }
