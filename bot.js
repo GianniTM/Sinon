@@ -468,7 +468,7 @@ client.on('message', async message => {
             };
             sentEmbed.awaitReactions(filter, { time: 15000 })
                 .then(collected => {var i = Math.floor(Math.random() * participants.length);
-                    message.channel.send(`@${participants[i]} won`)})
+                    message.channel.send(`<@${participants[i]}> won`)})
 
 
         })
