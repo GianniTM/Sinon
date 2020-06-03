@@ -113,6 +113,12 @@ client.on('message', async message => {
         embed.addField(
             '**/feedback**' ,'Feedback for bugs and ideas! If you dislike the bot do not put this in the feedback. This is for serious feedback. Use the /hate command to hate her ;P'
         );
+        embed.addField(
+            '**/rr**' ,'Russian Roulette, Just a fun game to play with friends. Winner will be shot! Be aware winner will also be muted or put in the death Role if you are in the main Discord server.'
+        );
+        embed.addField(
+            '**/discord**' ,'Main discord server. Come join to hang out!'
+        );
         embed.setFooter('Created By Xealius','https://images-ext-2.discordapp.net/external/koFm2tlX5t7FcS-qEPlTx5S3z-taeo1Ns2K-f2lw4H8/https/cdn.discordapp.com/avatars/271720534767697930/a_f37bd901007d84679f44c4690f9fa364.gif')
         message.channel.send({embed});
     }
@@ -476,6 +482,10 @@ client.on('message', async message => {
                     sentEmbed.edit(embed);
                 })
         })
+    }
+    else if(message.content === '/discord')
+    {
+        message.channel.send('https://discord.gg/yQcB6mz');
     }
 
 
