@@ -469,16 +469,18 @@ client.on('message', async message => {
                         }
                     }
                     message.channel.send('ik kom hier')
+                    if(participants.toArray().length){
+                        message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
+                    }
+                    else{
+                        message.channel.send('You suck @xealius')
 
-            }, 15000);
-
-                if(participants.toArray().length){
-                    message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
-                }
-                else{
-                    message.channel.send('You suck @xealius')
+                    }
 
             }
+            , 15000);
+
+
         })
     }
 
