@@ -114,7 +114,7 @@ client.on('message', async message => {
             '**/feedback**' ,'Feedback for bugs and ideas! If you dislike the bot do not put this in the feedback. This is for serious feedback. Use the /hate command to hate her ;P'
         );
         embed.addField(
-            '**/rr**' ,'Russian Roulette, Just a fun game to play with friends. Winner will be shot! Be aware winner will also be muted or put in the death Role if you are in the main Discord server.'
+            '**/rr**' ,'Russian Roulette, Just a fun game to play with friends. Winner will be shot! In progress: (Be aware winner will also be muted or put in the death Role if you are in the main Discord server.)'
         );
         embed.addField(
             '**/discord**' ,'Main discord server. Come join to hang out!'
@@ -443,11 +443,13 @@ client.on('message', async message => {
             message.channel.send("You are not in a VoiceChannel!");
         }
     }
+    //hate command for the sinon haters
     else if(message.content == ('/hate'))
     {
         counter += 1;
         message.channel.send('Sadly ' + counter + ' persons have hated me so far.');
     }
+    //Feedback command for bugs or ideas
     else if(message.content == ('/feedback'))
     {
         const embed = new Discord.RichEmbed();
@@ -457,6 +459,7 @@ client.on('message', async message => {
         embed.setURL("https://forms.gle/V5jdU9sBuVPWBzEk8");
         message.channel.send({embed});
     }
+    // Rusian Roulette
     else if(message.content == ('/rr'))
     {
         participants = [];
@@ -483,6 +486,7 @@ client.on('message', async message => {
                 })
         })
     }
+    // Discord
     else if(message.content === '/discord')
     {
         message.channel.send('https://discord.gg/yQcB6mz');
