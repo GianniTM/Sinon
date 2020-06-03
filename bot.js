@@ -460,8 +460,8 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
-
-                return reaction.emoji.name === "🔫" && user.id === sentEmbed.guild.fetchMember(user.id);
+                message.channel.send(user.id + sentEmbed.author.id)
+                return reaction.emoji.name === "🔫" && user.id === sentEmbed.author.id;
             };
             sentEmbed.awaitReactions(filter, {time: 15000})
                 .then(collected => message.channel.send(collected.size))
