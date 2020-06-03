@@ -453,33 +453,24 @@ client.on('message', async message => {
     }
     else if(message.content == ('/rr'))
     {
-        participants = {};
+        participants = [];
         const embed = new Discord.RichEmbed();
         embed.setTitle('**Russian Roulette**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.setDescription(`React with the 🔫 emoji to partcipate!`);
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
-
-            setTimeout(function(){
-                    for(var i=0;i<20;i++) {
-                        if (reaction.emoji.name === "🔫") {
-                            participants.push(user.id);
-
-                        }
-                    }
-                    message.channel.send('ik kom hier')
-                    if(participants.toArray().length){
-                        message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
-                    }
-                    else{
-                        message.channel.send('You suck @xealius')
-
-                    }
-
+            const filter = (reaction, user) => {
+                if (reaction.emoji.name === "🔫"){
+                    participants.push(user.id);
+                }
+            };
+            if(participants.toArray().length){
+                message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
             }
-            , 15000);
-
+            else{
+                message.channel.send('You suck @xealius')
+            }
 
         })
     }
