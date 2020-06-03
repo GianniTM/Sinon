@@ -4,7 +4,7 @@ const { ErelaClient } = require('erela.js')
 const YTDL = require('ytdl-core');
 const { stripIndents } = require("common-tags")
 var search = require('youtube-search');
-var counter = 0;
+var counter = 1;
 var opts = {
     maxResults: 10,
     key: process.env.YT_TOKEN
@@ -445,7 +445,16 @@ client.on('message', async message => {
     else if(message.content == ('/hate'))
     {
         counter += 1;
-        message.channel.send('Sadly ' + counter + ' have hated me so far.');
+        message.channel.send('Sadly ' + counter + 'persons have hated me so far.');
+    }
+    else if(message.content == ('/feedback'))
+    {
+        const embed = new Discord.RichEmbed();
+        embed.setTitle('Feedback for bugs and ideas!');
+        embed.setThumbnail(message.guild.iconURL)
+        embed.setDescription(`You can report a bug or give us ideas for more stuff to implement in the bot using the link below`);
+        embed.setURL("https://forms.gle/V5jdU9sBuVPWBzEk8");
+        message.channel.send({embed});
     }
 
 
