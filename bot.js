@@ -457,8 +457,8 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed();
         embed.setTitle('**Russian Roulette**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
-        embed.setDescription(`React with the 🔫 emoji to partcipate!`);
-        embed.setFooter("Time Since started 15 seconds")
+        embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+        embed.setFooter("Time Since started 15 seconds");
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
@@ -469,9 +469,12 @@ client.on('message', async message => {
             };
             sentEmbed.awaitReactions(filter, { time: 15000 })
                 .then(collected => {var i = Math.floor(Math.random() * (participants.length - 1)) + 1;
-                    message.channel.send(`**Winner:** <@${participants[i]}> was shot to death!`)})
-
-
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nnReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!`);
+                    embed.setFooter("Time remaining 0 seconds");
+                    sentEmbed.edit(embed);
+                })
         })
     }
 
