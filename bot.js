@@ -459,8 +459,8 @@ client.on('message', async message => {
         embed.setDescription(`React with the 🔫 emoji to partcipate!`);
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
-            const filter = (reaction, user) => {
-                return reaction.emoji.name === "🔫" && user.id === message.guild.fetchMember(user.id);
+            const filter = (reaction) => {
+                return reaction.emoji.name === "🔫";
             };
             sentEmbed.awaitReactions(filter, {time: 15000})
                 .then(collected => message.channel.send(collected.size))
