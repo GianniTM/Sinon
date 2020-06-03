@@ -460,17 +460,13 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
-                return reaction.emoji.name === "🔫" && user.id === reaction.author.id;
+                return reaction.emoji.name === "🔫" && user.id === reaction.user.id;
             };
-            const collector = sentEmbed.createReactionCollector(filter, { time: 15000 });
-
-            collector.on('collect', (reaction, user) => {
-                message.channel.send(`Collected ${reaction.emoji.name} from ${user}`);
-            });
-
-            collector.on('end', collected => {
-                message.channel.send(`Collected ${collected.size} items`);
-            });
+            sentEmbed.awaitReactions(filter, {time: 15000})
+                .then(collected => message.channel.send(collected.size))
+                .catch(collected => {
+                    message.channel.send(`After a few, only ${collected.size} out of 4 reacted.`);
+                });
         })
     }
 
