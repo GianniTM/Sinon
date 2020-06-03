@@ -458,6 +458,7 @@ client.on('message', async message => {
         embed.setTitle('**Russian Roulette**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.setDescription(`React with the 🔫 emoji to partcipate!`);
+        embed.setFooter("Time Since started 15 seconds")
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
@@ -467,8 +468,8 @@ client.on('message', async message => {
                 return reaction.emoji.name === "🔫";
             };
             sentEmbed.awaitReactions(filter, { time: 15000 })
-                .then(collected => {var i = Math.floor(Math.random() * participants.length);
-                    message.channel.send(`<@${participants[i]}> won`)})
+                .then(collected => {var i = Math.floor(Math.random() * (participants.length - 1)) + 1;
+                    message.channel.send(`**Winner:** <@${participants[i]}> was shot to death!`)})
 
 
         })
