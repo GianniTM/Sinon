@@ -460,19 +460,22 @@ client.on('message', async message => {
         embed.setDescription(`React with the 🔫 emoji to partcipate!`);
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
-            const filter = (reaction, user) => {
-                if (reaction.emoji.name === "🔫"){
-                    participants.push(user.id);
-                }
-            };
-            setTimeout(myFunction, 3000)
-            function myFunction() {
+
+            var myVar = setInterval(function(){
+                    for(var i=0;i<9999;i++) {
+                        if (reaction.emoji.name === "🔫") {
+                            participants.push(user.id);
+                        }
+                    }
+
+            }, 15000);
+
                 if(participants.toArray().length){
                     message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
                 }
                 else{
                     message.channel.send('You suck @xealius')
-                }
+
             }
         })
     }
