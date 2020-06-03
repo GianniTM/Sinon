@@ -463,10 +463,10 @@ client.on('message', async message => {
                 return reaction.emoji.name === '🔫' && user.id === message.author.id;
             };
 
-            message.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
-                .then(collected => console.log(collected.size))
+            message.awaitReactions(filter, { max: 4, time: 5000, errors: ['time'] })
+                .then(collected => message.channel.send(collected.size))
                 .catch(collected => {
-                    console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+                    message.channel.send(`After a minute, only ${collected.size} out of 4 reacted.`);
                 });
         })
     }
