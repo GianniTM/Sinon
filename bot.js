@@ -462,6 +462,7 @@ client.on('message', async message => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
                 message.channel.send(reaction.emoji);
+                message.channel.send('hey');
                 return(reaction.emoji.name === "🔫");
             };
             message.awaitReactions(filter, { time: 15000 })
