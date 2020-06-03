@@ -467,7 +467,8 @@ client.on('message', async message => {
                 return reaction.emoji.name === "🔫";
             };
             sentEmbed.awaitReactions(filter, { time: 15000 })
-                .then(collected => message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`))
+                .then(collected => {var i = Math.floor(Math.random() * participants.length);
+                    message.channel.send(`@${participants[i]} won`)})
 
 
         })
