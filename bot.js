@@ -387,7 +387,7 @@ client.on('message', async message => {
         if(i == '69'){
                 message.channel.send("https://tenor.com/view/kevin-the-office-smirk-gif-5248324");}
         if(messages == '69'){
-            message.channel.send(nickname + ", there isn't a die for this :( but i like the idea! ");
+            message.channel.send("https://tenor.com/view/office-the-kevin-from-wine-gif-13397053");
         }
         else if(messages == '420'){
             message.channel.send("https://tenor.com/view/afroman-high-baked-gif-5764943");
