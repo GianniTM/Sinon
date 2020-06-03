@@ -440,7 +440,7 @@ client.on('message', async message => {
     else if(message.content == ('/hate'))
     {
         counter += 1;
-        message.channel.send('Sadly ' + counter + 'persons have hated me so far.');
+        message.channel.send('Sadly ' + counter + ' persons have hated me so far.');
     }
     else if(message.content == ('/feedback'))
     {
