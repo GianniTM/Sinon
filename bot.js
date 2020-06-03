@@ -19,7 +19,7 @@ function Play(connection, message)
         if (server.queue[0]){
             const title = server.queue[0].title;
             const embed = new Discord.RichEmbed();
-            embed.setAuthor("Now Playing:", message.author.displayAvatarURL);
+            embed.setAuthor("Now Playing:", "https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
             embed.setTitle(title)
             message.channel.send({embed}).then(m => {
                 server.dispatcher.on("end",function () {
@@ -453,6 +453,7 @@ client.on('message', async message => {
     }
     else if(message.content == ('/rr'))
     {
+        participants = [];
         const embed = new Discord.RichEmbed();
         embed.setTitle('**Russian Roulette**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
@@ -460,13 +461,17 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
-                return reaction.emoji.name === "🔫" && user.id;
+                if (reaction.emoji.name === "🔫"){
+                    participants.push(user.id);
+                }
             };
-            sentEmbed.awaitReactions(filter, {time: 15000})
-                .then(collected => message.channel.send(collected.size))
-                .catch(collected => {
-                    message.channel.send(`After a few, only ${collected.size} out of 4 reacted.`);
-                });
+            if(participants.toArray().length){
+                message.channel.send(`After a few, only ${participants.toArray().length} out of 4 reacted.`);
+            }
+            else{
+                message.channel.send('You suck @xealius')
+            }
+
         })
     }
 
