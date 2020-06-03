@@ -463,6 +463,7 @@ client.on('message', async message => {
             const filter = (reaction, user) => {
                 if (reaction.emoji.name === "🔫"){
                     participants.push(user.id);
+                    return(reaction.emoji.name === "🔫");
                 }
             };
             message.awaitReactions(filter, { time: 15000 })
