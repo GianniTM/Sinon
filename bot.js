@@ -465,13 +465,15 @@ client.on('message', async message => {
                     participants.push(user.id);
                 }
             };
-            if(participants.toArray().length){
-                message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
+            setTimeout(myFunction, 3000)
+            function myFunction() {
+                if(participants.toArray().length){
+                    message.channel.send(`After a few, only ${participants.length} out of 4 reacted.`);
+                }
+                else{
+                    message.channel.send('You suck @xealius')
+                }
             }
-            else{
-                message.channel.send('You suck @xealius')
-            }
-
         })
     }
 
