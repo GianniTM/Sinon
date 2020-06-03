@@ -459,19 +459,15 @@ client.on('message', async message => {
         embed.setDescription(`React with the 🔫 emoji to partcipate!`);
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
-            var list = [];
-            const filter = (reaction,user) => {
-                if(reaction.emoji.name === "🔫"){
-                    list.push(user);
-                }
+            const filter = (reaction, user) => {
 
-                return list;
+                return reaction.emoji.name === "🔫" && user.id === sentEmbed.guild.fetchMember(user.id);
             };
-            setTimeout(myFunction, 3000);
-            function myFunction() {
-                message.channel.send(list.length);
-            }
-
+            sentEmbed.awaitReactions(filter, {time: 15000})
+                .then(collected => message.channel.send(collected.size))
+                .catch(collected => {
+                    message.channel.send(`After a few, only ${collected.size} out of 4 reacted.`);
+                });
         })
     }
 
