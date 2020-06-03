@@ -461,12 +461,14 @@ client.on('message', async message => {
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
 
-            var myVar = setInterval(function(){
+            setTimeout(function(){
                     for(var i=0;i<9999;i++) {
                         if (reaction.emoji.name === "🔫") {
                             participants.push(user.id);
+
                         }
                     }
+                    message.channel.send('ik kom hier')
 
             }, 15000);
 
