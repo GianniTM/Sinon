@@ -467,7 +467,7 @@ client.on('message', async message => {
                 }
             };
             message.awaitReactions(filter, { time: 15000 })
-                .then(collected => message.channel.send(`After a few, only ${participants.length} out of 4 reacted. ${collected.size}`))
+                .then(collected => message.channel.send(`After a few, only ${participants} out of 4 reacted. ${collected.size}`))
 
 
         })
