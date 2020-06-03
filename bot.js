@@ -70,7 +70,7 @@ client.on('message', async message => {
     else if (message.content === '/help')
     {
         const embed = new Discord.RichEmbed();
-        embed.setTitle("Functions");
+        embed.setTitle("**Functions**");
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.setDescription("Here you can see al the functions this bot has so far.");
         embed.addField(
@@ -445,7 +445,7 @@ client.on('message', async message => {
     else if(message.content == ('/feedback'))
     {
         const embed = new Discord.RichEmbed();
-        embed.setTitle('Feedback for bugs and ideas!');
+        embed.setTitle('**Feedback for bugs and ideas!**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.setDescription(`You can report a bug or give us ideas for more stuff to implement in the bot using the link in the title!`);
         embed.setURL("https://forms.gle/V5jdU9sBuVPWBzEk8");
