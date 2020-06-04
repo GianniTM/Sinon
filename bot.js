@@ -489,7 +489,7 @@ client.on('message', async message => {
         embed.setTitle('**Russian Roulette**');
         embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
         embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
-        embed.setFooter("Time Since started 15 seconds");
+        embed.setFooter("Time remaining 15 seconds");
         message.channel.send(embed).then(sentEmbed => {
             sentEmbed.react("🔫");
             const filter = (reaction, user) => {
@@ -498,12 +498,76 @@ client.on('message', async message => {
                 }
                 return reaction.emoji.name === "🔫";
             };
+            sentEmbed.awaitReactions(filter, { time: 1000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 14 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 2000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 13 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 3000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 12 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 4000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 11 seconds");
+                    sentEmbed.edit(embed);
+                })
             sentEmbed.awaitReactions(filter, { time: 5000 })
                 .then(collected => {
                     embed.setTitle('**Russian Roulette**');
                     embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
                     embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
-                    embed.setFooter("Time Since started 10 seconds");
+                    embed.setFooter("Time remaining 10 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 6000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 9 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 7000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 8 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 8000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 7 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 9000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 6 seconds");
                     sentEmbed.edit(embed);
                 })
             sentEmbed.awaitReactions(filter, { time: 10000 })
@@ -511,9 +575,43 @@ client.on('message', async message => {
                     embed.setTitle('**Russian Roulette**');
                     embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
                     embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
-                    embed.setFooter("Time Since started 5 seconds");
+                    embed.setFooter("Time remaining 5 seconds");
                     sentEmbed.edit(embed);
                 })
+            sentEmbed.awaitReactions(filter, { time: 11000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 4 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 12000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 3 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 13000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 2 seconds");
+                    sentEmbed.edit(embed);
+                })
+            sentEmbed.awaitReactions(filter, { time: 14000 })
+                .then(collected => {
+                    embed.setTitle('**Russian Roulette**');
+                    embed.setThumbnail("https://images-ext-2.discordapp.net/external/C5rK2371x-fIsGosTVXQo1IzhaKIXpe6ol9Zgk8KrIw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/713003111945470013/0a883c7fe46b95b79b79e2e7a0021d5b.png?width=677&height=677");
+                    embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!`);
+                    embed.setFooter("Time remaining 1 seconds");
+                    sentEmbed.edit(embed);
+                })
+
+
             sentEmbed.awaitReactions(filter, { time: 15000 })
                 .then(collected => {var i = Math.floor(Math.random() * (participants.length - 1)) + 1;
                     embed.setTitle('**Russian Roulette**');
