@@ -505,6 +505,43 @@ client.on('message', async message => {
                     embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!`);
                     embed.setFooter("Time remaining 0 seconds");
                     sentEmbed.edit(embed);
+                    shot = participants[i];
+                    if(shot.hasPermission("MANAGE_MESSAGES")) {
+                        embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nHas Not been muted due to Admin rights`);
+                        sentEmbed.edit(embed);
+                    }
+                    else{
+                        let muterole = message.guild.roles.find(`name`, "muted");
+                        //start of create role
+                        if(!muterole){
+                            try{
+                                muterole =  message.guild.createRole({
+                                    name: "muted",
+                                    color: "#000000",
+                                    permissions:[]
+                                })
+                                message.guild.channels.forEach(async (channel, id) => {
+                                    await channel.overwritePermissions(muterole, {
+                                        SEND_MESSAGES: false,
+                                        ADD_REACTIONS: false
+                                    });
+                                });
+                            }catch(e){
+                                console.log(e.stack);
+                            }
+                        }
+                        //end of create role
+                        let mutetime = 120000;
+
+                        shot.addRole(muterole.id);
+                        embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nAnd has been muted for 2 Minutes.`);
+                        sentEmbed.edit(embed);
+                        setTimeout(function(){
+                            shot.removeRole(muterole.id);
+                        }, mutetime);
+                    }
+
+
                 })
         })
     }
