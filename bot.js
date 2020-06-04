@@ -510,13 +510,10 @@ client.on('message', async message => {
                         sentEmbed.edit(embed);
                     }
                     else{
-                        message.channel.send('i come here after role')
                         let muterole = message.guild.roles.find(`name`, "muted");
                         //start of create role
                         if(!muterole){
-                            message.channel.send('role does not exist ')
                             try{
-                                message.channel.send('i make role')
                                 muterole =  message.guild.createRole({
                                     name: "muted",
                                     color: "#000000",
@@ -534,9 +531,7 @@ client.on('message', async message => {
                         }
                         //end of create role
                         mutetime = 120000;
-                        message.channel.send('i come here after role')
                         shot.addRole(muterole.id);
-                        message.channel.send('i come here after role')
                         embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nAnd has been muted for 2 Minutes.`);
                         sentEmbed.edit(embed);
                         setTimeout(function(){
