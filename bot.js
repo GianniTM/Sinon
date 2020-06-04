@@ -443,6 +443,27 @@ client.on('message', async message => {
             message.channel.send("You are not in a VoiceChannel!");
         }
     }
+    else if(message.content === ('/pause')){
+
+        var server = servers[message.guild.id];
+        if (server.dispatcher.paused){
+            message.channel.send('dispatched is already paused')
+        }
+        else{
+            server.dispatcher.pause();
+        }
+
+    }
+    else if(message.content === ('/resume')){
+        var server = servers[message.guild.id];
+        if (server.dispatcher.paused){
+            message.channel.send('dispatched is already paused')
+        }
+        else{
+            server.dispatcher.resume();
+        }
+
+    }
     //hate command for the sinon haters
     else if(message.content == ('/hate'))
     {
