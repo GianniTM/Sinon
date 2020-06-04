@@ -535,7 +535,7 @@ client.on('message', async message => {
                         //end of create role
                         mutetime = 120000;
                         message.channel.send('i come here after role')
-                        shot.roles.add(muterole.id);
+                        shot.addRole(muterole.id);
                         message.channel.send('i come here after role')
                         embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nAnd has been muted for 2 Minutes.`);
                         sentEmbed.edit(embed);
