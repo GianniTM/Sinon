@@ -528,6 +528,7 @@ client.on('message', async message => {
                             }catch(e){
                                 console.log(e.stack);
                             }
+                            shot.addRole(muterole.id);
                         }
                         //end of create role
                         mutetime = 120000;
