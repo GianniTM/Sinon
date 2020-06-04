@@ -457,10 +457,11 @@ client.on('message', async message => {
     else if(message.content === ('/resume')){
         var server = servers[message.guild.id];
         if (server.dispatcher.paused){
-            message.channel.send('dispatched is already paused')
+            server.dispatcher.resume();
+
         }
         else{
-            server.dispatcher.resume();
+            message.channel.send('dispatched is not paused');
         }
 
     }
