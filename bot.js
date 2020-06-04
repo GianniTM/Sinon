@@ -505,15 +505,17 @@ client.on('message', async message => {
                     embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!`);
                     embed.setFooter("Time remaining 0 seconds");
                     const shot = participants[i];
-                    if(shot.hasPermission("MANAGE_MESSAGES")) {
-                        embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nHas Not been muted due to Admin rights`);
+                    if(shot.id === '271720534767697930') {
+                        embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nHas Not been muted due to Owner rights`);
                         sentEmbed.edit(embed);
                     }
                     else{
                         let muterole = message.guild.roles.find(`name`, "muted");
                         //start of create role
                         if(!muterole){
+                            message.channel.send('role does not exist ')
                             try{
+                                message.channel.send('i make role')
                                 muterole =  message.guild.createRole({
                                     name: "muted",
                                     color: "#000000",
