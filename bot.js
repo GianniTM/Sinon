@@ -505,7 +505,7 @@ client.on('message', async message => {
                     embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!`);
                     embed.setFooter("Time remaining 0 seconds");
                     const shot = participants[i];
-                    if(shot.id === '271720534767697930') {
+                    if(shot === '271720534767697930') {
                         embed.setDescription(`Started by <@${message.author.id}>\nReact with the 🔫 emoji to partcipate!\n**Winner:** <@${participants[i]}> was shot to death!\nHas Not been muted due to Owner rights`);
                         sentEmbed.edit(embed);
                     }
@@ -531,6 +531,7 @@ client.on('message', async message => {
                                 console.log(e.stack);
                             }
                         }
+                        message.channel.send('i come here after role')
                         //end of create role
                         let mutetime = 120000;
 
