@@ -1,18 +1,21 @@
 {
-  "name": "Test",
-  "description": "Test",
+  "name": "SinonTest",
+  "description": "Test for sinon",
   "version": "0.0.0",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "common-tags": "^1.8.0",
+    "discord-youtube-api": "^0.1.0",
     "discord.js": "^11.6.4",
     "erela.js": "^1.1.8",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.2",
+    "get-video-duration": "^3.0.0-beta.1",
     "libsodium-wrappers": "^0.7.6",
     "opusscript": "0.0.7",
     "request": "2.81.0",
